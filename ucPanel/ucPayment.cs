@@ -70,6 +70,7 @@ namespace Unicon1.ucPanel
         private void btnEnter_Click(object sender, EventArgs e)
         {
             tboxPrice.Text = "";
+            
         }
 
     }

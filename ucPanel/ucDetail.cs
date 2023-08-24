@@ -37,6 +37,7 @@ namespace Unicon1.ucPanel
             _ucSandwitch.addlist += Add_status;
             _ucUserControl1.FloatMenu += fMenulist;
             _ucPaymentLT.floatPayment += fPaymentPage;
+            _ucDutch.floatdutch += fDutch;
 
             pLT.Controls.Clear();
             pLT.Controls.Add(_ucUserControl1);
@@ -107,6 +108,21 @@ namespace Unicon1.ucPanel
                     break;
             }
         }
+
+        private void fDutch(object oSender, int numPerson)
+        {
+            int n = 0;
+            int Priceper1 = total_price / numPerson;
+            int restofPrice = total_price - Priceper1*n;
+            _ucDutch2.lblPricePerRound.Text = Priceper1.ToString();
+            _ucDutch2.lblRestofPrice.Text = restofPrice.ToString();
+            _ucDutch2.lblNumPerson.Text = numPerson.ToString();
+
+            pMenuList.Controls.Clear();
+            pMenuList.Controls.Add(_ucDutch2);
+        }
+
+
 
         //private void btnMixedPay_Click(object sender, EventArgs e)
         //{
