@@ -36,6 +36,7 @@ namespace Unicon1.ucPanel
             InitializeComponent();
             _ucSandwitch.addlist += Add_status;
             _ucUserControl1.FloatMenu += fMenulist;
+            _ucPaymentLT.floatPayment += fPaymentPage;
 
             pLT.Controls.Clear();
             pLT.Controls.Add(_ucUserControl1);
