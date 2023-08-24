@@ -72,6 +72,7 @@
             this.btnDirectInput.TabIndex = 1;
             this.btnDirectInput.Text = "직접입력";
             this.btnDirectInput.UseVisualStyleBackColor = true;
+            this.btnDirectInput.Click += new System.EventHandler(this.btnDirectInput_Click);
             // 
             // btnDutch
             // 
@@ -82,6 +83,7 @@
             this.btnDutch.TabIndex = 2;
             this.btnDutch.Text = "더치페이";
             this.btnDutch.UseVisualStyleBackColor = true;
+            this.btnDutch.Click += new System.EventHandler(this.btnDutch_Click);
             // 
             // ucPaymentLT
             // 

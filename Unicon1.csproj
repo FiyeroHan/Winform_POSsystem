@@ -91,6 +91,12 @@
     <Compile Include="ucPanel\ucPaymentLT.Designer.cs">
       <DependentUpon>ucPaymentLT.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucPanel\ucSteak.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucPanel\ucSteak.Designer.cs">
+      <DependentUpon>ucSteak.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucPanel\ucTable.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -147,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucPanel\ucPaymentLT.resx">
       <DependentUpon>ucPaymentLT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucPanel\ucSteak.resx">
+      <DependentUpon>ucSteak.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucPanel\ucTable.resx">
       <DependentUpon>ucTable.cs</DependentUpon>

@@ -88,6 +88,7 @@
             this.btnTable3.Size = new System.Drawing.Size(152, 150);
             this.btnTable3.TabIndex = 0;
             this.btnTable3.UseVisualStyleBackColor = false;
+            this.btnTable3.Click += new System.EventHandler(this.btnTable3_Click);
             // 
             // btnTable5
             // 
@@ -98,6 +99,7 @@
             this.btnTable5.Size = new System.Drawing.Size(152, 150);
             this.btnTable5.TabIndex = 0;
             this.btnTable5.UseVisualStyleBackColor = false;
+            this.btnTable5.Click += new System.EventHandler(this.btnTable5_Click);
             // 
             // btnTable2
             // 
@@ -108,6 +110,7 @@
             this.btnTable2.Size = new System.Drawing.Size(152, 150);
             this.btnTable2.TabIndex = 0;
             this.btnTable2.UseVisualStyleBackColor = false;
+            this.btnTable2.Click += new System.EventHandler(this.btnTable2_Click);
             // 
             // btnTable6
             // 
@@ -118,6 +121,7 @@
             this.btnTable6.Size = new System.Drawing.Size(152, 150);
             this.btnTable6.TabIndex = 0;
             this.btnTable6.UseVisualStyleBackColor = false;
+            this.btnTable6.Click += new System.EventHandler(this.btnTable6_Click);
             // 
             // btnTable1
             // 
@@ -139,6 +143,7 @@
             this.btnTable7.Size = new System.Drawing.Size(152, 150);
             this.btnTable7.TabIndex = 0;
             this.btnTable7.UseVisualStyleBackColor = false;
+            this.btnTable7.Click += new System.EventHandler(this.btnTable7_Click);
             // 
             // btnTable4
             // 
@@ -149,6 +154,7 @@
             this.btnTable4.Size = new System.Drawing.Size(152, 150);
             this.btnTable4.TabIndex = 0;
             this.btnTable4.UseVisualStyleBackColor = false;
+            this.btnTable4.Click += new System.EventHandler(this.btnTable4_Click);
             // 
             // button1
             // 

@@ -16,22 +16,29 @@ namespace Unicon1.ucPanel
 
         public List<ucMenuStatus> table1_menu = new List<ucMenuStatus>();
 
-        ucSandwitch ucSandwitch = new ucSandwitch();
-        ucPasta ucPasta = new ucPasta();
-        ucMenuStatus ucMenuStatus = new ucMenuStatus();
-        ucPayment ucPayment = new ucPayment();
-        ucPaymentLT ucPaymentLT = new ucPaymentLT();
-        UserControl1 ucUserControl1 = new UserControl1();
+        ucSandwitch _ucSandwitch = new ucSandwitch();
+        ucPasta _ucPasta = new ucPasta();
+        ucSteak _ucSteak = new ucSteak();
+        ucMenuStatus _ucMenuStatus = new ucMenuStatus();
+        ucPayment _ucPayment = new ucPayment();
+        ucPaymentLT _ucPaymentLT = new ucPaymentLT();
+        UserControl1 _ucUserControl1 = new UserControl1();
+        ucDucth _ucDutch = new ucDucth();
+        ucDucth2 _ucDutch2 = new ucDucth2();
+
         public int total_price = 0;
+
 
  //       ucMenuStatus[] menuList = new ucMenuStatus[20];
 
         public ucDetail()
         {
             InitializeComponent();
-            ucSandwitch.addlist += UcSandwitch_addlist;
-            pLT.Controls.Add(ucUserControl1);
-            pMenuList.Controls.Add(ucSandwitch);
+            _ucSandwitch.addlist += Add_status;
+            _ucUserControl1.FloatMenu += fMenulist;
+
+            pLT.Controls.Clear();
+            pLT.Controls.Add(_ucUserControl1);
         }
 
 
@@ -41,28 +48,12 @@ namespace Unicon1.ucPanel
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Add_status(object oSender, ucMenuStatus menuInfo)
         {
-            pMenuList.Controls.Clear();
-            pMenuList.Controls.Add(ucSandwitch);
-        }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            pMenuList.Controls.Clear();
-            pMenuList.Controls.Add(ucPasta);
-        }
-
-        private void UcSandwitch_addlist(object oSender)
-        {
-            ucMenuStatus _ucMenuStatus = new ucMenuStatus();
-            _ucMenuStatus.Menu = "아메리칸 샌드위치";
-            _ucMenuStatus.Detail = "토마토, 오이 없음";
-            _ucMenuStatus.Price = 9000;
-
-            total_price += _ucMenuStatus.Price;
+            total_price += menuInfo.Price;
             lblTotalPrice.Text = total_price.ToString();
-            table1_menu.Add(_ucMenuStatus);
+            table1_menu.Add(menuInfo);
 
             foreach (ucMenuStatus i in table1_menu)
             {
@@ -70,13 +61,50 @@ namespace Unicon1.ucPanel
             }
         }
 
+        private void fMenulist(object oSender,MenuList menu)
+        {
+            switch (menu)
+            {
+                case (MenuList.Sandwitch):
+                    pMenuList.Controls.Clear();
+                    pMenuList.Controls.Add(_ucSandwitch);
+                    break;
+                case (MenuList.Pasta):
+                    pMenuList.Controls.Clear();
+                    pMenuList.Controls.Add(_ucPasta);
+                    break;
+                case (MenuList.Steak):
+                    pMenuList.Controls.Clear();
+                    pMenuList.Controls.Add(_ucSteak);
+                    break;
+
+            }
+                
+        }
+
         private void button12_Click(object sender, EventArgs e)
         {
-            pLT.Controls.Clear();
             pMenuList.Controls.Clear();
+            pMenuList.Controls.Add(_ucPayment);
 
-            pLT.Controls.Add(ucPaymentLT);
-            pMenuList.Controls.Add(ucPayment);
+            pLT.Controls.Clear();
+            pLT.Controls.Add(_ucPaymentLT);
+
+        }
+
+        private void fPaymentPage(object oSender, string page)
+        {
+            switch (page)
+            {
+                case ("direct"):
+                    pMenuList.Controls.Clear();
+                    pMenuList.Controls.Add(_ucPayment);
+                    break;
+                case ("dutch"):
+                    pMenuList.Controls.Clear();
+                    pMenuList.Controls.Add(_ucDutch);
+                    break;
+            }
         }
 
         //private void btnMixedPay_Click(object sender, EventArgs e)

@@ -12,9 +12,21 @@ namespace Unicon1.ucPanel
 {
     public partial class ucPaymentLT : UserControl
     {
+        public event floatPayment floatPayment;
+
         public ucPaymentLT()
         {
             InitializeComponent();
+        }
+
+        private void btnDutch_Click(object sender, EventArgs e)
+        {
+            floatPayment("dutch", "dutch");
+        }
+
+        private void btnDirectInput_Click(object sender, EventArgs e)
+        {
+            floatPayment("direct", "direct");
         }
     }
 }

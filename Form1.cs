@@ -63,6 +63,7 @@ namespace Unicon1
         {
             pMain.Controls.Clear();
             pMain.Controls.Add(ucDetail);
+
         }
 
         private void UcDetail_eLogSender(object oSender)

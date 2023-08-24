@@ -30,7 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.pLT = new System.Windows.Forms.TableLayoutPanel();
+            this.LayoutLT = new System.Windows.Forms.TableLayoutPanel();
             this.pMenuList = new System.Windows.Forms.Panel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
@@ -43,8 +43,9 @@
             this.lblTotalPrice = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.fpMenu = new System.Windows.Forms.FlowLayoutPanel();
+            this.pLT = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1.SuspendLayout();
-            this.pLT.SuspendLayout();
+            this.LayoutLT.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -64,7 +65,7 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel1.Controls.Add(this.pLT, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.LayoutLT, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel5, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -74,21 +75,22 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1536, 777);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
-            // pLT
+            // LayoutLT
             // 
-            this.pLT.ColumnCount = 1;
-            this.pLT.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.pLT.Controls.Add(this.pMenuList, 0, 1);
-            this.pLT.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pLT.Location = new System.Drawing.Point(0, 0);
-            this.pLT.Margin = new System.Windows.Forms.Padding(0);
-            this.pLT.Name = "pLT";
-            this.pLT.RowCount = 2;
-            this.pLT.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.pLT.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.pLT.Size = new System.Drawing.Size(921, 777);
-            this.pLT.TabIndex = 0;
-            this.pLT.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel2_Paint);
+            this.LayoutLT.ColumnCount = 1;
+            this.LayoutLT.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.LayoutLT.Controls.Add(this.pMenuList, 0, 1);
+            this.LayoutLT.Controls.Add(this.pLT, 0, 0);
+            this.LayoutLT.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LayoutLT.Location = new System.Drawing.Point(0, 0);
+            this.LayoutLT.Margin = new System.Windows.Forms.Padding(0);
+            this.LayoutLT.Name = "LayoutLT";
+            this.LayoutLT.RowCount = 2;
+            this.LayoutLT.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.LayoutLT.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.LayoutLT.Size = new System.Drawing.Size(921, 777);
+            this.LayoutLT.TabIndex = 0;
+            this.LayoutLT.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel2_Paint);
             // 
             // pMenuList
             // 
@@ -242,6 +244,14 @@
             this.fpMenu.Size = new System.Drawing.Size(603, 507);
             this.fpMenu.TabIndex = 5;
             // 
+            // pLT
+            // 
+            this.pLT.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pLT.Location = new System.Drawing.Point(3, 3);
+            this.pLT.Name = "pLT";
+            this.pLT.Size = new System.Drawing.Size(915, 149);
+            this.pLT.TabIndex = 2;
+            // 
             // ucDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
@@ -251,7 +261,7 @@
             this.Name = "ucDetail";
             this.Size = new System.Drawing.Size(1536, 777);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.pLT.ResumeLayout(false);
+            this.LayoutLT.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
@@ -265,7 +275,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TableLayoutPanel pLT;
+        private System.Windows.Forms.TableLayoutPanel LayoutLT;
         private System.Windows.Forms.Panel pMenuList;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
@@ -278,5 +288,6 @@
         private System.Windows.Forms.Button btnMixedPay;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Panel pLT;
     }
 }

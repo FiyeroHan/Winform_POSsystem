@@ -12,14 +12,26 @@ namespace Unicon1.ucPanel
 {
     public partial class UserControl1 : UserControl
     {
+        public event floatmenu FloatMenu;
+        ucSandwitch ucSandwitch = new ucSandwitch();
         public UserControl1()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnBrunch_Click(object sender, EventArgs e)
         {
+            FloatMenu("ucSandwitch", (MenuList)0);
+        }
 
+        private void btnPasta_Click(object sender, EventArgs e)
+        {
+            FloatMenu("ucPasta", (MenuList)1);
+        }
+
+        private void btnSteak_Click(object sender, EventArgs e)
+        {
+            FloatMenu("ucSteak", (MenuList)2);
         }
     }
 }

@@ -23,5 +23,35 @@ namespace Unicon1.ucPanel
         {
             eLogSender("Table1 Button");
         }
+
+        private void btnTable2_Click(object sender, EventArgs e)
+        {
+            eLogSender("Table2 Button");
+        }
+
+        private void btnTable3_Click(object sender, EventArgs e)
+        {
+            eLogSender("Table3 Button");
+        }
+
+        private void btnTable7_Click(object sender, EventArgs e)
+        {
+            eLogSender("Table7 Button");
+        }
+
+        private void btnTable6_Click(object sender, EventArgs e)
+        {
+            eLogSender("Table6 Button");
+        }
+
+        private void btnTable5_Click(object sender, EventArgs e)
+        {
+            eLogSender("Table5 Button");
+        }
+
+        private void btnTable4_Click(object sender, EventArgs e)
+        {
+            eLogSender("Table4 Button");
+        }
     }
 }

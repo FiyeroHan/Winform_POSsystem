@@ -1,6 +1,6 @@
 ﻿namespace Unicon1.ucPanel
 {
-    partial class ucPasta
+    partial class ucSteak
     {
         /// <summary> 
         /// 필수 디자이너 변수입니다.
@@ -65,7 +65,7 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(915, 616);
-            this.tableLayoutPanel4.TabIndex = 2;
+            this.tableLayoutPanel4.TabIndex = 3;
             // 
             // button16
             // 
@@ -143,7 +143,7 @@
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(251, 151);
             this.button10.TabIndex = 4;
-            this.button10.Text = "알리오올리오\r\n\r\n9000원";
+            this.button10.Text = "안심스테이크\r\n\r\n17000원";
             this.button10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button10.UseVisualStyleBackColor = false;
             // 
@@ -157,7 +157,7 @@
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(261, 151);
             this.button9.TabIndex = 3;
-            this.button9.Text = "토마토 파스타\r\n\r\n11000원";
+            this.button9.Text = "등심 스테이크\r\n\r\n17000원";
             this.button9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button9.UseVisualStyleBackColor = false;
             // 
@@ -171,16 +171,16 @@
             this.btnTable1.Name = "btnTable1";
             this.btnTable1.Size = new System.Drawing.Size(253, 151);
             this.btnTable1.TabIndex = 2;
-            this.btnTable1.Text = "크림 파스타\r\n\r\n11000원";
+            this.btnTable1.Text = "목살 찹 스테이크\r\n\r\n13000원";
             this.btnTable1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTable1.UseVisualStyleBackColor = false;
             // 
-            // ucPasta
+            // ucSteak
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel4);
-            this.Name = "ucPasta";
+            this.Name = "ucSteak";
             this.Size = new System.Drawing.Size(915, 616);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.ResumeLayout(false);
