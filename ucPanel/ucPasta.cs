@@ -19,8 +19,10 @@ namespace Unicon1.ucPanel
             InitializeComponent();
         }
 
-        private void button10_Click(object sender, EventArgs e)
+
+        private void button10_Click_1(object sender, EventArgs e)
         {
+
             ucMenuStatus menuInfo = new ucMenuStatus();
 
             menuInfo.Menu = "알리오 올리오";

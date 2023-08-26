@@ -13,15 +13,17 @@ namespace Unicon1.ucPanel
     public partial class ucDucth : UserControl
     {
         int numPerson = 0;
+
         public event floatDutch floatdutch;
         public ucDucth()
         {
             InitializeComponent();
+        
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            numPerson = numericUpDown1.Controls.Count;
+            numPerson = (int)numericUpDown1.Value;
             floatdutch("button1", numPerson);
 
         }

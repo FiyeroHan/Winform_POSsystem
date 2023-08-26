@@ -146,6 +146,7 @@
             this.button10.Text = "알리오올리오\r\n\r\n9000원";
             this.button10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click_1);
             // 
             // button9
             // 
@@ -160,6 +161,7 @@
             this.button9.Text = "토마토 파스타\r\n\r\n11000원";
             this.button9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // btnTable1
             // 
@@ -174,6 +176,7 @@
             this.btnTable1.Text = "크림 파스타\r\n\r\n11000원";
             this.btnTable1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTable1.UseVisualStyleBackColor = false;
+            this.btnTable1.Click += new System.EventHandler(this.btnTable1_Click);
             // 
             // ucPasta
             // 

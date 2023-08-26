@@ -146,6 +146,7 @@
             this.button10.Text = "안심스테이크\r\n\r\n17000원";
             this.button10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // button9
             // 
@@ -160,6 +161,7 @@
             this.button9.Text = "등심 스테이크\r\n\r\n17000원";
             this.button9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // btnTable1
             // 
@@ -174,6 +176,7 @@
             this.btnTable1.Text = "목살 찹 스테이크\r\n\r\n13000원";
             this.btnTable1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTable1.UseVisualStyleBackColor = false;
+            this.btnTable1.Click += new System.EventHandler(this.btnTable1_Click);
             // 
             // ucSteak
             // 
