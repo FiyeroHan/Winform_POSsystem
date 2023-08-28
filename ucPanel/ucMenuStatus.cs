@@ -12,6 +12,7 @@ namespace Unicon1.ucPanel
 {
     public partial class ucMenuStatus : UserControl
     {
+        public event menulist removelist;
         public ucMenuStatus()
         {
             InitializeComponent();
@@ -46,5 +47,9 @@ namespace Unicon1.ucPanel
 
         #endregion
 
+        private void btnCancle_Click(object sender, EventArgs e)
+        {
+            removelist(sender, this);
+        }
     }
 }

@@ -53,8 +53,6 @@ namespace Unicon1.ucPanel
             }
         }
 
-
-
         private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
         {
 
@@ -62,10 +60,23 @@ namespace Unicon1.ucPanel
 
         private void Add_status(object oSender, ucMenuStatus menuInfo)
         {
-
+            menuInfo.removelist += fRemove;
             total_price += menuInfo.Price;
             lblTotalPrice.Text = total_price.ToString();
             _table.Add(menuInfo);
+
+            foreach (ucMenuStatus i in _table)
+            {
+                fpMenu.Controls.Add(i);
+            }
+        }
+
+        private void fRemove(object oSender, ucMenuStatus menuInfo)
+        {
+            total_price -= menuInfo.Price;
+            lblTotalPrice.Text = total_price.ToString();
+            _table.Remove(menuInfo);
+            fpMenu.Controls.Clear();
 
             foreach (ucMenuStatus i in _table)
             {

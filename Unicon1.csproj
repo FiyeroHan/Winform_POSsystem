@@ -61,15 +61,11 @@
     <Compile Include="ucPanel\ucDetail.Designer.cs">
       <DependentUpon>ucDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucPanel\ucDucth.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="ucPanel\ucDucth.cs" />
     <Compile Include="ucPanel\ucDucth.Designer.cs">
       <DependentUpon>ucDucth.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucPanel\ucDucth2.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="ucPanel\ucDucth2.cs" />
     <Compile Include="ucPanel\ucDucth2.Designer.cs">
       <DependentUpon>ucDucth2.cs</DependentUpon>
     </Compile>
@@ -79,27 +75,19 @@
     <Compile Include="ucPanel\ucPasta.Designer.cs">
       <DependentUpon>ucPasta.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucPanel\ucPayment.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="ucPanel\ucPayment.cs" />
     <Compile Include="ucPanel\ucPayment.Designer.cs">
       <DependentUpon>ucPayment.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucPanel\ucPaymentLT.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="ucPanel\ucPaymentLT.cs" />
     <Compile Include="ucPanel\ucPaymentLT.Designer.cs">
       <DependentUpon>ucPaymentLT.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucPanel\ucSteak.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="ucPanel\ucSteak.cs" />
     <Compile Include="ucPanel\ucSteak.Designer.cs">
       <DependentUpon>ucSteak.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucPanel\ucTable.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="ucPanel\ucTable.cs" />
     <Compile Include="ucPanel\ucTable.Designer.cs">
       <DependentUpon>ucTable.cs</DependentUpon>
     </Compile>
@@ -115,9 +103,7 @@
     <Compile Include="ucPanel\ucMenuStatus.Designer.cs">
       <DependentUpon>ucMenuStatus.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucPanel\UserControl1.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="ucPanel\UserControl1.cs" />
     <Compile Include="ucPanel\UserControl1.Designer.cs">
       <DependentUpon>UserControl1.cs</DependentUpon>
     </Compile>

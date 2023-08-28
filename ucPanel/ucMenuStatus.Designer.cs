@@ -48,11 +48,12 @@
             this.tableLayoutPanel1.Controls.Add(this.btnCancle, 2, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(609, 150);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(388, 86);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // lblMenu
@@ -60,9 +61,10 @@
             this.lblMenu.AutoSize = true;
             this.lblMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblMenu.Font = new System.Drawing.Font("굴림", 14F);
-            this.lblMenu.Location = new System.Drawing.Point(3, 0);
+            this.lblMenu.Location = new System.Drawing.Point(2, 0);
+            this.lblMenu.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMenu.Name = "lblMenu";
-            this.lblMenu.Size = new System.Drawing.Size(359, 75);
+            this.lblMenu.Size = new System.Drawing.Size(228, 43);
             this.lblMenu.TabIndex = 0;
             this.lblMenu.Text = "아메리칸 샌드위치";
             this.lblMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -73,10 +75,11 @@
             this.lblDetail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblDetail.Font = new System.Drawing.Font("굴림", 11F);
             this.lblDetail.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblDetail.Location = new System.Drawing.Point(3, 75);
+            this.lblDetail.Location = new System.Drawing.Point(2, 43);
+            this.lblDetail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDetail.Name = "lblDetail";
             this.lblDetail.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblDetail.Size = new System.Drawing.Size(359, 75);
+            this.lblDetail.Size = new System.Drawing.Size(228, 43);
             this.lblDetail.TabIndex = 1;
             this.lblDetail.Text = "토마토, 오이\r\n없음";
             this.lblDetail.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -86,9 +89,10 @@
             this.lblPrice.AutoSize = true;
             this.lblPrice.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblPrice.Font = new System.Drawing.Font("굴림", 15F);
-            this.lblPrice.Location = new System.Drawing.Point(368, 0);
+            this.lblPrice.Location = new System.Drawing.Point(234, 0);
+            this.lblPrice.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(176, 75);
+            this.lblPrice.Size = new System.Drawing.Size(112, 43);
             this.lblPrice.TabIndex = 2;
             this.lblPrice.Text = "9000";
             this.lblPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -97,20 +101,23 @@
             // 
             this.btnCancle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnCancle.Font = new System.Drawing.Font("굴림", 14F);
-            this.btnCancle.Location = new System.Drawing.Point(550, 3);
+            this.btnCancle.Location = new System.Drawing.Point(350, 2);
+            this.btnCancle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCancle.Name = "btnCancle";
-            this.btnCancle.Size = new System.Drawing.Size(56, 69);
+            this.btnCancle.Size = new System.Drawing.Size(36, 39);
             this.btnCancle.TabIndex = 3;
             this.btnCancle.Text = "X";
             this.btnCancle.UseVisualStyleBackColor = true;
+            this.btnCancle.Click += new System.EventHandler(this.btnCancle_Click);
             // 
             // ucMenuStatus
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ucMenuStatus";
-            this.Size = new System.Drawing.Size(609, 150);
+            this.Size = new System.Drawing.Size(388, 86);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
