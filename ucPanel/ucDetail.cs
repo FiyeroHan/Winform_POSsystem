@@ -12,9 +12,7 @@ namespace Unicon1.ucPanel
 {
     public partial class ucDetail : UserControl
     {
-        public event delLogSender eLogSender;
-
-        public List<ucMenuStatus> table1_menu = new List<ucMenuStatus>();
+        public event backToTable BackToTable;
 
         ucSandwitch _ucSandwitch = new ucSandwitch();
         ucPasta _ucPasta = new ucPasta();
@@ -26,13 +24,18 @@ namespace Unicon1.ucPanel
         ucDucth _ucDutch = new ucDucth();
         ucDucth2 _ucDutch2 = new ucDucth2();
 
+        private List<ucMenuStatus> _table = new List<ucMenuStatus>();
+
         public int total_price = 0;
 
 
  //       ucMenuStatus[] menuList = new ucMenuStatus[20];
 
-        public ucDetail()
+        public ucDetail(List<ucMenuStatus> table)
         {
+
+            _table = table;
+
             InitializeComponent();
             _ucSandwitch.addlist += Add_status;
             _ucPasta.addlist += Add_status;
@@ -43,6 +46,11 @@ namespace Unicon1.ucPanel
 
             pLT.Controls.Clear();
             pLT.Controls.Add(_ucUserControl1);
+
+            foreach (ucMenuStatus i in _table)
+            {
+                fpMenu.Controls.Add(i);
+            }
         }
 
 
@@ -57,9 +65,9 @@ namespace Unicon1.ucPanel
 
             total_price += menuInfo.Price;
             lblTotalPrice.Text = total_price.ToString();
-            table1_menu.Add(menuInfo);
+            _table.Add(menuInfo);
 
-            foreach (ucMenuStatus i in table1_menu)
+            foreach (ucMenuStatus i in _table)
             {
                 fpMenu.Controls.Add(i);
             }
@@ -122,6 +130,16 @@ namespace Unicon1.ucPanel
 
             pMenuList.Controls.Clear();
             pMenuList.Controls.Add(_ucDutch2);
+        }
+
+        private void tableLayoutPanel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnBackTable_Click(object sender, EventArgs e)
+        {
+            BackToTable("btnBackTable", _table);
         }
 
 

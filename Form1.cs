@@ -13,7 +13,7 @@ namespace Unicon1
     public partial class Form1 : Form
     {
         ucPanel.ucTable ucTable = new ucPanel.ucTable();
-        ucPanel.ucDetail ucDetail = new ucPanel.ucDetail();
+        
 
         public Form1()
         {
@@ -53,23 +53,27 @@ namespace Unicon1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            ucTable.eLogSender += UcTable_eLogSender;
-            ucDetail.eLogSender += UcDetail_eLogSender;
+            ucTable.FloatDetail += fDetail;
+            
 
             pMain.Controls.Add(ucTable);
         }
 
-        private void UcTable_eLogSender(object oSender)
+        private void fDetail(object oSender, List<ucPanel.ucMenuStatus> table)
         {
+            ucPanel.ucDetail ucDetail = new ucPanel.ucDetail(table);
+            ucDetail.BackToTable += fTable;
+
             pMain.Controls.Clear();
             pMain.Controls.Add(ucDetail);
+
 
         }
 
-        private void UcDetail_eLogSender(object oSender)
+        private void fTable(object oSender, List<ucPanel.ucMenuStatus> table)
         {
             pMain.Controls.Clear();
-            pMain.Controls.Add(ucDetail);
+            pMain.Controls.Add(ucTable);
         }
 
     }

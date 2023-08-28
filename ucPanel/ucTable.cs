@@ -12,7 +12,15 @@ namespace Unicon1.ucPanel
 {
     public partial class ucTable : UserControl
     {
-        public event delLogSender eLogSender;
+        public event floatDetail FloatDetail;
+
+        public List<ucPanel.ucMenuStatus> table1 = new List<ucPanel.ucMenuStatus>();
+        public List<ucPanel.ucMenuStatus> table2 = new List<ucPanel.ucMenuStatus>();
+        public List<ucPanel.ucMenuStatus> table3 = new List<ucPanel.ucMenuStatus>();
+        public List<ucPanel.ucMenuStatus> table4 = new List<ucPanel.ucMenuStatus>();
+        public List<ucPanel.ucMenuStatus> table5 = new List<ucPanel.ucMenuStatus>();
+        public List<ucPanel.ucMenuStatus> table6 = new List<ucPanel.ucMenuStatus>();
+        public List<ucPanel.ucMenuStatus> table7 = new List<ucPanel.ucMenuStatus>();
 
         public ucTable()
         {
@@ -21,37 +29,37 @@ namespace Unicon1.ucPanel
 
         private void btnTable1_Click(object sender, EventArgs e)
         {
-            eLogSender("Table1 Button");
+            FloatDetail("Table1 Button", table1);
         }
 
         private void btnTable2_Click(object sender, EventArgs e)
         {
-            eLogSender("Table2 Button");
+            FloatDetail("Table2 Button", table2);
         }
 
         private void btnTable3_Click(object sender, EventArgs e)
         {
-            eLogSender("Table3 Button");
+            FloatDetail("Table3 Button", table3);
         }
 
         private void btnTable7_Click(object sender, EventArgs e)
         {
-            eLogSender("Table7 Button");
+            FloatDetail("Table7 Button", table7);
         }
 
         private void btnTable6_Click(object sender, EventArgs e)
         {
-            eLogSender("Table6 Button");
+            FloatDetail("Table6 Button", table6);
         }
 
         private void btnTable5_Click(object sender, EventArgs e)
         {
-            eLogSender("Table5 Button");
+            FloatDetail("Table5 Button", table5);
         }
 
         private void btnTable4_Click(object sender, EventArgs e)
         {
-            eLogSender("Table4 Button");
+            FloatDetail("Table4 Button", table4);
         }
     }
 }

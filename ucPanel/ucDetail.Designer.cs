@@ -32,6 +32,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.LayoutLT = new System.Windows.Forms.TableLayoutPanel();
             this.pMenuList = new System.Windows.Forms.Panel();
+            this.pLT = new System.Windows.Forms.Panel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.button12 = new System.Windows.Forms.Button();
@@ -43,7 +44,7 @@
             this.lblTotalPrice = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.fpMenu = new System.Windows.Forms.FlowLayoutPanel();
-            this.pLT = new System.Windows.Forms.Panel();
+            this.btnBackTable = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.LayoutLT.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -101,6 +102,14 @@
             this.pMenuList.Size = new System.Drawing.Size(915, 616);
             this.pMenuList.TabIndex = 1;
             // 
+            // pLT
+            // 
+            this.pLT.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pLT.Location = new System.Drawing.Point(3, 3);
+            this.pLT.Name = "pLT";
+            this.pLT.Size = new System.Drawing.Size(915, 149);
+            this.pLT.TabIndex = 2;
+            // 
             // tableLayoutPanel5
             // 
             this.tableLayoutPanel5.ColumnCount = 1;
@@ -108,6 +117,7 @@
             this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel6, 0, 3);
             this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel4, 0, 2);
             this.tableLayoutPanel5.Controls.Add(this.fpMenu, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.btnBackTable, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(924, 3);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
@@ -118,6 +128,7 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(609, 771);
             this.tableLayoutPanel5.TabIndex = 1;
+            this.tableLayoutPanel5.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel5_Paint);
             // 
             // tableLayoutPanel6
             // 
@@ -244,13 +255,16 @@
             this.fpMenu.Size = new System.Drawing.Size(603, 507);
             this.fpMenu.TabIndex = 5;
             // 
-            // pLT
+            // btnBackTable
             // 
-            this.pLT.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pLT.Location = new System.Drawing.Point(3, 3);
-            this.pLT.Name = "pLT";
-            this.pLT.Size = new System.Drawing.Size(915, 149);
-            this.pLT.TabIndex = 2;
+            this.btnBackTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnBackTable.Location = new System.Drawing.Point(3, 3);
+            this.btnBackTable.Name = "btnBackTable";
+            this.btnBackTable.Size = new System.Drawing.Size(603, 36);
+            this.btnBackTable.TabIndex = 6;
+            this.btnBackTable.Text = "돌아가기";
+            this.btnBackTable.UseVisualStyleBackColor = true;
+            this.btnBackTable.Click += new System.EventHandler(this.btnBackTable_Click);
             // 
             // ucDetail
             // 
@@ -289,5 +303,6 @@
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Panel pLT;
+        private System.Windows.Forms.Button btnBackTable;
     }
 }
