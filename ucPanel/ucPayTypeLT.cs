@@ -10,24 +10,13 @@ using System.Windows.Forms;
 
 namespace Unicon1.ucPanel
 {
-    public partial class ucPaymentLT : UserControl
+    public partial class ucPayTypeLT : UserControl
     {
-        public event floatPayment floatPayment;
         public event backToMenu backToMenu;
 
-        public ucPaymentLT()
+        public ucPayTypeLT()
         {
             InitializeComponent();
-        }
-
-        private void btnDutch_Click(object sender, EventArgs e)
-        {
-            floatPayment("dutch", "dutch");
-        }
-
-        private void btnDirectInput_Click(object sender, EventArgs e)
-        {
-            floatPayment("direct", "direct");
         }
 
         private void btnBack_Click(object sender, EventArgs e)

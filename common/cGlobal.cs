@@ -18,6 +18,7 @@ namespace Unicon1
     public delegate void floatmenu(object oSender, MenuList menu);
     public delegate void floatPayment(object oSender, string page);
     public delegate void floatDutch(object oSender, int num);
+    public delegate void backToMenu(object sender);
 
     
 

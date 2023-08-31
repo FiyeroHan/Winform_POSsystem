@@ -61,11 +61,15 @@
     <Compile Include="ucPanel\ucDetail.Designer.cs">
       <DependentUpon>ucDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucPanel\ucDucth.cs" />
+    <Compile Include="ucPanel\ucDucth.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="ucPanel\ucDucth.Designer.cs">
       <DependentUpon>ucDucth.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucPanel\ucDucth2.cs" />
+    <Compile Include="ucPanel\ucDucth2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="ucPanel\ucDucth2.Designer.cs">
       <DependentUpon>ucDucth2.cs</DependentUpon>
     </Compile>
@@ -75,19 +79,39 @@
     <Compile Include="ucPanel\ucPasta.Designer.cs">
       <DependentUpon>ucPasta.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucPanel\ucPayment.cs" />
+    <Compile Include="ucPanel\ucPayment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="ucPanel\ucPayment.Designer.cs">
       <DependentUpon>ucPayment.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucPanel\ucPaymentLT.cs" />
+    <Compile Include="ucPanel\ucPaymentLT.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="ucPanel\ucPaymentLT.Designer.cs">
       <DependentUpon>ucPaymentLT.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucPanel\ucSteak.cs" />
+    <Compile Include="ucPanel\ucPayType.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucPanel\ucPayType.Designer.cs">
+      <DependentUpon>ucPayType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucPanel\ucPayTypeLT.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucPanel\ucPayTypeLT.Designer.cs">
+      <DependentUpon>ucPayTypeLT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucPanel\ucSteak.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="ucPanel\ucSteak.Designer.cs">
       <DependentUpon>ucSteak.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucPanel\ucTable.cs" />
+    <Compile Include="ucPanel\ucTable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="ucPanel\ucTable.Designer.cs">
       <DependentUpon>ucTable.cs</DependentUpon>
     </Compile>
@@ -103,7 +127,9 @@
     <Compile Include="ucPanel\ucMenuStatus.Designer.cs">
       <DependentUpon>ucMenuStatus.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucPanel\UserControl1.cs" />
+    <Compile Include="ucPanel\UserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="ucPanel\UserControl1.Designer.cs">
       <DependentUpon>UserControl1.cs</DependentUpon>
     </Compile>
@@ -139,6 +165,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucPanel\ucPaymentLT.resx">
       <DependentUpon>ucPaymentLT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucPanel\ucPayType.resx">
+      <DependentUpon>ucPayType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucPanel\ucPayTypeLT.resx">
+      <DependentUpon>ucPayTypeLT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucPanel\ucSteak.resx">
       <DependentUpon>ucSteak.cs</DependentUpon>
