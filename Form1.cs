@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Security.Permissions;
+using System.Runtime.InteropServices;
 
 namespace Unicon1
 {
@@ -53,10 +55,12 @@ namespace Unicon1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            ucTable.FloatDetail += fDetail;
-            
-
+            ucTable.FloatDetail += fDetail;            
             pMain.Controls.Add(ucTable);
+
+            webBrowser1.ObjectForScripting = true;
+
+
         }
 
         private void fDetail(object oSender, List<ucPanel.ucMenuStatus> table)
@@ -76,5 +80,45 @@ namespace Unicon1
             pMain.Controls.Add(ucTable);
         }
 
+        public void callValues(object tableNum, object price, object name, object detail)
+        {
+            int itableNum = (int)tableNum;
+            int iprice = (int)price;
+            string sname = (string)name;
+            string sdetail = (string)detail;
+
+            ucPanel.ucMenuStatus menuinfo = new ucPanel.ucMenuStatus(iprice, sname, sdetail);
+            
+            switch (itableNum)
+            {
+                case 1:
+                    ucTable.table1.Add(menuinfo);
+                    break;
+                case 2:
+                    ucTable.table1.Add(menuinfo);
+                    break;
+                case 3:
+                    ucTable.table1.Add(menuinfo);
+                    break;
+                case 4:
+                    ucTable.table1.Add(menuinfo);
+                    break;
+                case 5:
+                    ucTable.table1.Add(menuinfo);
+                    break;
+                case 6:
+                    ucTable.table1.Add(menuinfo);
+                    break;
+                case 7:
+                    ucTable.table1.Add(menuinfo);
+                    break;
+            }
+
+        }
+
+        private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+
+        }
     }
 }

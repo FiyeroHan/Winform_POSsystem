@@ -91,21 +91,6 @@
     <Compile Include="ucPanel\ucPaymentLT.Designer.cs">
       <DependentUpon>ucPaymentLT.cs</DependentUpon>
     </Compile>
-<<<<<<< HEAD
-=======
-    <Compile Include="ucPanel\ucPayType.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ucPanel\ucPayType.Designer.cs">
-      <DependentUpon>ucPayType.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ucPanel\ucPayTypeLT.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ucPanel\ucPayTypeLT.Designer.cs">
-      <DependentUpon>ucPayTypeLT.cs</DependentUpon>
-    </Compile>
->>>>>>> 6964904245e37848ff61b3bc98c5b406f02fc8e5
     <Compile Include="ucPanel\ucSteak.cs">
       <SubType>UserControl</SubType>
     </Compile>
