@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,6 +13,9 @@ namespace Unicon1.ucPanel
 {
     public partial class ucDetail : UserControl
     {
+        private readonly HttpClient httpClient = new HttpClient();
+        private readonly string apiUrl = "http://hoshi-kirby.xyz/docs#/product/stocksList_api_v1_stocks_list_get/";
+
         public event backToTable BackToTable;
 
         ucSandwitch _ucSandwitch = new ucSandwitch();
@@ -175,7 +179,34 @@ namespace Unicon1.ucPanel
             pLT.Controls.Add(_ucPayTypeLT);
         }
 
+        private async void buttonSendRequest_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // HTTP GET 요청을 보냅니다.
+                HttpResponseMessage response = await httpClient.GetAsync(apiUrl);
 
+                // 응답을 문자열로 변환하여 사용하거나 처리합니다.
+                if (response.IsSuccessStatusCode)
+                {
+                    string responseBody = await response.Content.ReadAsStringAsync();
+                    MessageBox.Show("API 응답: " + responseBody, "성공", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("API 요청 실패: " + response.ReasonPhrase, "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("오류 발생: " + ex.Message, "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            buttonSendRequest_Click(sender,e);
+        }
 
         //private void btnMixedPay_Click(object sender, EventArgs e)
         //{
