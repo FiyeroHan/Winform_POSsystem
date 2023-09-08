@@ -38,7 +38,7 @@ namespace Unicon1
             Size = parent.ClientSize;
             Location = parent.PointToScreen(Point.Empty);
 
-        }
+        }  
 
         public static DialogResult ShowDialog(Form parent, Form dialog, double opacity = 0.65)
         {
