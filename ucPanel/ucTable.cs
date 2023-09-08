@@ -25,6 +25,11 @@ namespace Unicon1.ucPanel
         public ucTable()
         {
             InitializeComponent();
+
+            for (int i = 0; i < 7; i++)
+            {
+
+            }
         }
 
         private void btnTable1_Click(object sender, EventArgs e)
