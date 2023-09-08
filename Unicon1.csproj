@@ -79,6 +79,12 @@
     <Compile Include="ucPanel\ucDucth2.Designer.cs">
       <DependentUpon>ucDucth2.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucPanel\ucLogin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucPanel\ucLogin.Designer.cs">
+      <DependentUpon>ucLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucPanel\ucPasta.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -159,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucPanel\ucDucth2.resx">
       <DependentUpon>ucDucth2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucPanel\ucLogin.resx">
+      <DependentUpon>ucLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucPanel\ucMenuStatus.resx">
       <DependentUpon>ucMenuStatus.cs</DependentUpon>

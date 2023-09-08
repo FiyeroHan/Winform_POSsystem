@@ -7,13 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Unicon1.ucPanel;
 
 namespace Unicon1
 {
     public partial class Form1 : Form
     {
         ucPanel.ucTable ucTable = new ucPanel.ucTable();
-        
+        ucPanel.ucLogin ucLogin = new ucPanel.ucLogin();
 
         public Form1()
         {
@@ -53,9 +54,14 @@ namespace Unicon1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            ucTable.FloatDetail += fDetail;
-            
+            ucLogin.LoginSuccess += UcLogin_LoginSuccess;
+            pMain.Controls.Add(ucLogin);
+        }
 
+        private void UcLogin_LoginSuccess(object sender)
+        {
+            pMain.Controls.Remove(ucLogin);
+            ucTable.FloatDetail += fDetail;
             pMain.Controls.Add(ucTable);
         }
 
