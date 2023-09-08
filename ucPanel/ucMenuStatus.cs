@@ -18,6 +18,19 @@ namespace Unicon1.ucPanel
             InitializeComponent();
         }
 
+        public ucMenuStatus(int price, string name)
+        {
+            lblPrice.Text = price.ToString();
+            lblMenu.Text = name;
+
+        }
+
+        public ucMenuStatus(int price, string name, string detail)
+        {
+            lblPrice.Text = price.ToString();
+            lblMenu.Text = name;
+            lblDetail.Text = detail;
+        }
         #region Properties
 
         private string _menu;

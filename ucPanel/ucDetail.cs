@@ -32,8 +32,8 @@ namespace Unicon1.ucPanel
         UserControl1 _ucUserControl1 = new UserControl1();
         ucDucth _ucDutch = new ucDucth();
         ucDucth2 _ucDutch2 = new ucDucth2();
-        ucPayType _ucPayType = new ucPayType();
-        ucPayTypeLT _ucPayTypeLT = new ucPayTypeLT();
+ //       ucPayType _ucPayType = new ucPayType();
+ //       ucPayTypeLT _ucPayTypeLT = new ucPayTypeLT();
 
         private List<ucMenuStatus> _table = new List<ucMenuStatus>();
 
@@ -76,7 +76,7 @@ namespace Unicon1.ucPanel
             _ucUserControl1.FloatMenu += fMenulist;
             _ucPaymentLT.floatPayment += fPaymentPage;
             _ucPaymentLT.backToMenu += BackToMenu;
-            _ucPayTypeLT.backToMenu += BackToMenu;
+//            _ucPayTypeLT.backToMenu += BackToMenu;
             _ucDutch.floatdutch += fDutch;
 
             pLT.Controls.Clear();
@@ -118,6 +118,12 @@ namespace Unicon1.ucPanel
             {
                 fpMenu.Controls.Add(i);
             }
+        
+        }
+
+        public void AddStatusFromOrder(object oSender, ucMenuStatus menuInfo)
+        {
+
         }
 
         private void fRemove(object oSender, ucMenuStatus menuInfo)
@@ -205,10 +211,10 @@ namespace Unicon1.ucPanel
         private void btnMixedPay_Click(object sender, EventArgs e)
         {
             pMenuList.Controls.Clear();
-            pMenuList.Controls.Add(_ucPayType);
+//            pMenuList.Controls.Add(_ucPayType);
 
             pLT.Controls.Clear();
-            pLT.Controls.Add(_ucPayTypeLT);
+ //           pLT.Controls.Add(_ucPayTypeLT);
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
