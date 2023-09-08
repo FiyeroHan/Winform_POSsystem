@@ -57,5 +57,10 @@ namespace Unicon1.ucPanel
                 MessageBox.Show("오류 발생: " + ex.Message, "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void PressEnter(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter) btnLogin_Click(sender, e);
+        }
     }
 }

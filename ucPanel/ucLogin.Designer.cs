@@ -53,6 +53,7 @@
             this.tboxID.Name = "tboxID";
             this.tboxID.Size = new System.Drawing.Size(100, 21);
             this.tboxID.TabIndex = 1;
+            this.tboxID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PressEnter);
             // 
             // tboxPW
             // 
@@ -61,6 +62,7 @@
             this.tboxPW.PasswordChar = '*';
             this.tboxPW.Size = new System.Drawing.Size(100, 21);
             this.tboxPW.TabIndex = 2;
+            this.tboxPW.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PressEnter);
             // 
             // label2
             // 
