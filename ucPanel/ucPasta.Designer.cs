@@ -29,16 +29,6 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.button16 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.btnTable1 = new System.Windows.Forms.Button();
-            this.tableLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel4
@@ -47,145 +37,26 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel4.Controls.Add(this.button16, 0, 2);
-            this.tableLayoutPanel4.Controls.Add(this.button15, 0, 2);
-            this.tableLayoutPanel4.Controls.Add(this.button14, 0, 2);
-            this.tableLayoutPanel4.Controls.Add(this.button13, 0, 1);
-            this.tableLayoutPanel4.Controls.Add(this.button12, 0, 1);
-            this.tableLayoutPanel4.Controls.Add(this.button11, 0, 1);
-            this.tableLayoutPanel4.Controls.Add(this.button10, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.button9, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.btnTable1, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.Padding = new System.Windows.Forms.Padding(5);
+            this.tableLayoutPanel4.Padding = new System.Windows.Forms.Padding(3);
             this.tableLayoutPanel4.RowCount = 3;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(915, 616);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(582, 352);
             this.tableLayoutPanel4.TabIndex = 2;
-            // 
-            // button16
-            // 
-            this.button16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.button16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button16.Location = new System.Drawing.Point(35, 427);
-            this.button16.Margin = new System.Windows.Forms.Padding(30, 20, 20, 30);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(251, 154);
-            this.button16.TabIndex = 10;
-            this.button16.UseVisualStyleBackColor = false;
-            // 
-            // button15
-            // 
-            this.button15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.button15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button15.Location = new System.Drawing.Point(326, 427);
-            this.button15.Margin = new System.Windows.Forms.Padding(20, 20, 20, 30);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(261, 154);
-            this.button15.TabIndex = 9;
-            this.button15.UseVisualStyleBackColor = false;
-            // 
-            // button14
-            // 
-            this.button14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.button14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button14.Location = new System.Drawing.Point(627, 427);
-            this.button14.Margin = new System.Windows.Forms.Padding(20, 20, 30, 30);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(253, 154);
-            this.button14.TabIndex = 8;
-            this.button14.UseVisualStyleBackColor = false;
-            // 
-            // button13
-            // 
-            this.button13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.button13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button13.Location = new System.Drawing.Point(627, 226);
-            this.button13.Margin = new System.Windows.Forms.Padding(20, 20, 30, 20);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(253, 161);
-            this.button13.TabIndex = 7;
-            this.button13.UseVisualStyleBackColor = false;
-            // 
-            // button12
-            // 
-            this.button12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.button12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button12.Location = new System.Drawing.Point(326, 226);
-            this.button12.Margin = new System.Windows.Forms.Padding(20);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(261, 161);
-            this.button12.TabIndex = 6;
-            this.button12.UseVisualStyleBackColor = false;
-            // 
-            // button11
-            // 
-            this.button11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.button11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button11.Location = new System.Drawing.Point(35, 226);
-            this.button11.Margin = new System.Windows.Forms.Padding(30, 20, 20, 20);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(251, 161);
-            this.button11.TabIndex = 5;
-            this.button11.UseVisualStyleBackColor = false;
-            // 
-            // button10
-            // 
-            this.button10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.button10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button10.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button10.Location = new System.Drawing.Point(35, 35);
-            this.button10.Margin = new System.Windows.Forms.Padding(30, 30, 20, 20);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(251, 151);
-            this.button10.TabIndex = 4;
-            this.button10.Text = "알리오올리오\r\n\r\n9000원";
-            this.button10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button10.UseVisualStyleBackColor = false;
-            this.button10.Click += new System.EventHandler(this.button10_Click_1);
-            // 
-            // button9
-            // 
-            this.button9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.button9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button9.Font = new System.Drawing.Font("굴림", 12F);
-            this.button9.Location = new System.Drawing.Point(326, 35);
-            this.button9.Margin = new System.Windows.Forms.Padding(20, 30, 20, 20);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(261, 151);
-            this.button9.TabIndex = 3;
-            this.button9.Text = "토마토 파스타\r\n\r\n11000원";
-            this.button9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button9.UseVisualStyleBackColor = false;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
-            // 
-            // btnTable1
-            // 
-            this.btnTable1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnTable1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnTable1.Font = new System.Drawing.Font("굴림", 12F);
-            this.btnTable1.Location = new System.Drawing.Point(627, 35);
-            this.btnTable1.Margin = new System.Windows.Forms.Padding(20, 30, 30, 20);
-            this.btnTable1.Name = "btnTable1";
-            this.btnTable1.Size = new System.Drawing.Size(253, 151);
-            this.btnTable1.TabIndex = 2;
-            this.btnTable1.Text = "크림 파스타\r\n\r\n11000원";
-            this.btnTable1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTable1.UseVisualStyleBackColor = false;
-            this.btnTable1.Click += new System.EventHandler(this.btnTable1_Click);
             // 
             // ucPasta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel4);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ucPasta";
-            this.Size = new System.Drawing.Size(915, 616);
-            this.tableLayoutPanel4.ResumeLayout(false);
+            this.Size = new System.Drawing.Size(582, 352);
             this.ResumeLayout(false);
 
         }
@@ -193,14 +64,5 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button btnTable1;
     }
 }

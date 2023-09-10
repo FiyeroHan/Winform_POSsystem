@@ -10,14 +10,19 @@ using System.Windows.Forms;
 using Unicon1.ucPanel;
 using System.Security.Permissions;
 using System.Runtime.InteropServices;
-
+using Newtonsoft.Json.Linq;
 
 namespace Unicon1
 {
     public partial class Form1 : Form
     {
+        public event passtoken AccessToken;
+
         ucPanel.ucTable ucTable = new ucPanel.ucTable();
         ucPanel.ucLogin ucLogin = new ucPanel.ucLogin();
+        
+
+        string _token = string.Empty;
 
         public Form1()
         {
@@ -61,16 +66,18 @@ namespace Unicon1
             pMain.Controls.Add(ucLogin);
         }
 
-        private void UcLogin_LoginSuccess(object sender)
+        private void UcLogin_LoginSuccess(object sender, JToken token)
         {
             pMain.Controls.Remove(ucLogin);
             ucTable.FloatDetail += fDetail;
             pMain.Controls.Add(ucTable);
+            _token = token.ToString();
         }
 
         private void fDetail(object oSender, List<ucPanel.ucMenuStatus> table)
         {
             ucPanel.ucDetail ucDetail = new ucPanel.ucDetail(table);
+            ucDetail.setToken(_token);
             ucDetail.BackToTable += fTable;
 
             pMain.Controls.Clear();

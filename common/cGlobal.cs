@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,8 @@ namespace Unicon1
     public delegate void floatPayment(object oSender, string page);
     public delegate void floatDutch(object oSender, int num);
     public delegate void backToMenu(object sender);
-    public delegate void login(object sender);
+    public delegate void login(object sender, JToken token);
+    public delegate void passtoken(object sender);
 
     
 

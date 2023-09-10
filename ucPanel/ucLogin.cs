@@ -39,7 +39,7 @@ namespace Unicon1.ucPanel
             string apiUrl = "http://hoshi-kirby.xyz/api/v1/user/login?id=" + id + "&pw=" + pw;
             try
             {
-                WebRequest request = WebRequest.Create(apiUrl);
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(apiUrl);
                 string responseFromServer = string.Empty;
                 request.Method = "GET";
                 request.ContentType = "application/json";
@@ -49,8 +49,9 @@ namespace Unicon1.ucPanel
                     responseFromServer = reader.ReadToEnd();
                 JObject jobect = JObject.Parse(responseFromServer);
                 JToken jtoken = jobect["data"];
+                Console.WriteLine(jtoken["access_token"]);
                 if (jtoken["access_token"] == null) MessageBox.Show(jtoken["message"].ToString());
-                else LoginSuccess(sender);
+                else LoginSuccess(sender, jtoken["access_token"]);
             }
             catch (Exception ex)
             {

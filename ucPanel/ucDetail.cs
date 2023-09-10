@@ -23,8 +23,9 @@ namespace Unicon1.ucPanel
 
         public event backToTable BackToTable;
 
+        Form1 _form1 = new Form1();
         ucSandwitch _ucSandwitch = new ucSandwitch();
-        ucPasta _ucPasta = new ucPasta();
+        ucPasta _ucPasta;
         ucSteak _ucSteak = new ucSteak();
         ucMenuStatus _ucMenuStatus = new ucMenuStatus();
         ucPayment _ucPayment = new ucPayment();
@@ -32,6 +33,10 @@ namespace Unicon1.ucPanel
         UserControl1 _ucUserControl1 = new UserControl1();
         ucDucth _ucDutch = new ucDucth();
         ucDucth2 _ucDutch2 = new ucDucth2();
+
+        string _token = string.Empty;
+        List<string> _storecode = new List<string>();
+
  //       ucPayType _ucPayType = new ucPayType();
  //       ucPayTypeLT _ucPayTypeLT = new ucPayTypeLT();
 
@@ -42,42 +47,21 @@ namespace Unicon1.ucPanel
 
         //       ucMenuStatus[] menuList = new ucMenuStatus[20];
 
-        private async void buttonSendRequest_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                WebRequest request = WebRequest.Create(apiUrl);
-                string responseFromServer = string.Empty;
-                request.Method = "GET";
-                request.ContentType = "application/json";
-                using (WebResponse response = request.GetResponse())
-                using (Stream dataStream = response.GetResponseStream())
-                using (StreamReader reader = new StreamReader(dataStream))
-                    responseFromServer = reader.ReadToEnd();
-                JObject jobect = JObject.Parse(responseFromServer);
-                JToken jtoken = jobect["data"];
-                foreach (JToken token in jtoken) textBoxResult.Text += token["user_name"].ToString()+"\r\n";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("오류 발생: " + ex.Message, "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         public ucDetail(List<ucMenuStatus> table)
         {
 
             _table = table;
 
             InitializeComponent();
+            
             _ucSandwitch.addlist += Add_status;
-            _ucPasta.addlist += Add_status;
             _ucSteak.addlist += Add_status;
             _ucUserControl1.FloatMenu += fMenulist;
             _ucPaymentLT.floatPayment += fPaymentPage;
             _ucPaymentLT.backToMenu += BackToMenu;
 //            _ucPayTypeLT.backToMenu += BackToMenu;
             _ucDutch.floatdutch += fDutch;
+            _form1.AccessToken += foo;
 
             pLT.Controls.Clear();
             pLT.Controls.Add(_ucUserControl1);
@@ -92,6 +76,71 @@ namespace Unicon1.ucPanel
             }
 
             lblTotalPrice.Text = total_price.ToString();
+
+            string apiUrl = "http://hoshi-kirby.xyz/api/v1/order/store/list";
+            try
+            {
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(apiUrl);
+                string responseFromServer = string.Empty;
+                request.Method = "GET";
+                request.ContentType = "application/json";
+                //request.PreAuthenticate = true;
+                //request.Headers.Add("Authorization", "Bearer " + _token);
+                using (WebResponse response = request.GetResponse())
+                using (Stream dataStream = response.GetResponseStream())
+                using (StreamReader reader = new StreamReader(dataStream))
+                    responseFromServer = reader.ReadToEnd();
+                JObject jobect = JObject.Parse(responseFromServer);
+                JToken jtoken = jobect["stores"];
+                foreach (JToken token in jtoken)
+                {
+                    _storecode.Add(token["store_code"].ToString());
+                    textBoxResult.Text += token["store_code"].ToString() + "\r\n";
+                }
+                //textBoxResult.Text += jtoken.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("오류 발생: " + ex.Message, "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            Console.WriteLine(_storecode[0]);
+            _ucPasta = new ucPasta(_storecode[0]);
+            _ucPasta.addlist += Add_status;
+        }
+
+        public void setToken(string token)
+        {
+            _token = token;
+        }
+
+        private void foo(object sender)
+        {
+            string apiUrl = "http://hoshi-kirby.xyz/api/v1/order/store/list";
+            try
+            {
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(apiUrl);
+                string responseFromServer = string.Empty;
+                request.Method = "GET";
+                request.ContentType = "application/json";
+                //request.PreAuthenticate = true;
+                //request.Headers.Add("Authorization", "Bearer " + _token);
+                using (WebResponse response = request.GetResponse())
+                using (Stream dataStream = response.GetResponseStream())
+                using (StreamReader reader = new StreamReader(dataStream))
+                    responseFromServer = reader.ReadToEnd();
+                JObject jobect = JObject.Parse(responseFromServer);
+                JToken jtoken = jobect["stores"];
+                foreach(JToken token in jtoken)
+                {
+                    _storecode.Add(token["store_code"].ToString());
+                    textBoxResult.Text += token["store_code"].ToString()+"\r\n";
+                }
+                //textBoxResult.Text += jtoken.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("오류 발생: " + ex.Message, "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void BackToMenu(object sender)
@@ -219,7 +268,7 @@ namespace Unicon1.ucPanel
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            buttonSendRequest_Click(sender, e);
+            foo(sender);
         }
 
         //private void btnMixedPay_Click(object sender, EventArgs e)
