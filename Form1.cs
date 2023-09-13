@@ -77,11 +77,9 @@ namespace Unicon1
             _token = token.ToString();
         }
 
-        private void fDetail(object oSender, List<ucPanel.ucMenuStatus> table, int payed_price)
+        private void fDetail(object oSender)
         {
             Button btn = oSender as Button;
-            foreach(var item in table) Console.WriteLine(item.Name);
-            Console.WriteLine(payed_price.ToString());
             int tableNum = int.Parse(btn.Name.Substring(8));
             ucPanel.ucDetail ucDetail = new ucPanel.ucDetail(_tableMenuList[tableNum], _tablePayedPrice[tableNum], tableNum);
             ucDetail.setToken(_token);
@@ -101,7 +99,7 @@ namespace Unicon1
             pMain.Controls.Add(ucTable);
         }
 
-        public void callValues(object tableNum, object price, object name, object detail)
+        /*public void callValues(object tableNum, object price, object name, object detail)
         {
             int itableNum = (int)tableNum;
             int iprice = (int)price;
@@ -135,7 +133,7 @@ namespace Unicon1
                     break;
             }
 
-        }
+        }*/
 
         private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {

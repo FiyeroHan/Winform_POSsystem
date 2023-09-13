@@ -14,7 +14,7 @@ namespace Unicon1
     }
 
     // UserControl에서 Main으로 Log를 전달 하기 위한 Delegate
-    public delegate void floatDetail(object oSende, List<ucPanel.ucMenuStatus> table, int payed_price);
+    public delegate void floatDetail(object oSende);
     public delegate void backToTable(object oSende, List<ucPanel.ucMenuStatus> table, int payed_price, int tableNum);
     public delegate void menulist(object oSender, ucPanel.ucMenuStatus menuInfo);
     public delegate void floatmenu(object oSender, MenuList menu);
