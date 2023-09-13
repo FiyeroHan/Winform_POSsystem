@@ -20,6 +20,7 @@ namespace Unicon1
 
         ucPanel.ucTable ucTable = new ucPanel.ucTable();
         ucPanel.ucLogin ucLogin = new ucPanel.ucLogin();
+        ucPanel.ucSetting ucSetting = new ucSetting();
 
         List<ucMenuStatus>[] _tableMenuList = new List<ucMenuStatus>[100];
         int[] _tablePayedPrice = new int[100];
@@ -73,8 +74,24 @@ namespace Unicon1
         {
             pMain.Controls.Remove(ucLogin);
             ucTable.FloatDetail += fDetail;
+            ucTable.setting += UcTable_setting;
             pMain.Controls.Add(ucTable);
             _token = token.ToString();
+            ucSetting.endSetting += UcSetting_endSetting;
+        }
+
+        private void UcTable_setting(object sender, Button[] _tableStatus)
+        {
+            pMain.Controls.Clear();
+            pMain.Controls.Add(ucSetting);
+            ucSetting.SetTable(_tableStatus);
+        }
+
+        private void UcSetting_endSetting(object sender, Button[] _tableStatus)
+        {
+            pMain.Controls.Clear();
+            pMain.Controls.Add(ucTable);
+            ucTable.ShowTable(_tableStatus);
         }
 
         private void fDetail(object oSender)
