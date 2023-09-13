@@ -20,7 +20,9 @@ namespace Unicon1
 
         ucPanel.ucTable ucTable = new ucPanel.ucTable();
         ucPanel.ucLogin ucLogin = new ucPanel.ucLogin();
-        
+
+        List<ucMenuStatus>[] _tableMenuList = new List<ucMenuStatus>[100];
+        int[] _tablePayedPrice = new int[100];
 
         string _token = string.Empty;
 
@@ -64,6 +66,7 @@ namespace Unicon1
         {
             ucLogin.LoginSuccess += UcLogin_LoginSuccess;
             pMain.Controls.Add(ucLogin);
+            for (int i = 0; i < _tableMenuList.Length; i++) _tableMenuList[i] = new List<ucMenuStatus>();
         }
 
         private void UcLogin_LoginSuccess(object sender, JToken token)
@@ -74,9 +77,13 @@ namespace Unicon1
             _token = token.ToString();
         }
 
-        private void fDetail(object oSender, List<ucPanel.ucMenuStatus> table)
+        private void fDetail(object oSender, List<ucPanel.ucMenuStatus> table, int payed_price)
         {
-            ucPanel.ucDetail ucDetail = new ucPanel.ucDetail(table);
+            Button btn = oSender as Button;
+            foreach(var item in table) Console.WriteLine(item.Name);
+            Console.WriteLine(payed_price.ToString());
+            int tableNum = int.Parse(btn.Name.Substring(8));
+            ucPanel.ucDetail ucDetail = new ucPanel.ucDetail(_tableMenuList[tableNum], _tablePayedPrice[tableNum], tableNum);
             ucDetail.setToken(_token);
             ucDetail.BackToTable += fTable;
 
@@ -86,8 +93,10 @@ namespace Unicon1
 
         }
 
-        private void fTable(object oSender, List<ucPanel.ucMenuStatus> table)
+        private void fTable(object oSender, List<ucPanel.ucMenuStatus> table, int payed_price, int tableNum) 
         {
+            _tableMenuList[tableNum] = table;
+            _tablePayedPrice[tableNum] = payed_price;
             pMain.Controls.Clear();
             pMain.Controls.Add(ucTable);
         }

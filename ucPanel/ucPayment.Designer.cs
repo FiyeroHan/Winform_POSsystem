@@ -214,6 +214,7 @@
             this.Controls.Add(this.label1);
             this.Name = "ucPayment";
             this.Size = new System.Drawing.Size(915, 616);
+            this.Load += new System.EventHandler(this.UcPayment_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
