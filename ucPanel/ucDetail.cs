@@ -45,15 +45,17 @@ namespace Unicon1.ucPanel
         public int total_price = 0;
         public int payed_price = 0;
         public int tableNum = 0;
+        public int place = 0;
 
 
         //       ucMenuStatus[] menuList = new ucMenuStatus[20];
 
-        public ucDetail(List<ucMenuStatus> table, int payed_price, int tableNum)
+        public ucDetail(List<ucMenuStatus> table, int payed_price, int tableNum, int place)
         {
             this.tableNum = tableNum;
             _table = table;
             this.payed_price = payed_price;
+            this.place = place;
             Console.WriteLine(payed_price.ToString());
             InitializeComponent();
             
@@ -278,7 +280,7 @@ namespace Unicon1.ucPanel
 
         private void btnBackTable_Click(object sender, EventArgs e)
         {
-            BackToTable(sender, _table, payed_price, tableNum);
+            BackToTable(sender, _table, payed_price, place, tableNum);
         }
 
         private void btnMixedPay_Click(object sender, EventArgs e)

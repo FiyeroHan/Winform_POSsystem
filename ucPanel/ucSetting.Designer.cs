@@ -33,8 +33,9 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.pPlace = new System.Windows.Forms.TableLayoutPanel();
             this.btnendSetting = new System.Windows.Forms.Button();
-            this.pTable = new System.Windows.Forms.TableLayoutPanel();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.btnChangeName = new System.Windows.Forms.Button();
+            this.pTable = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -79,12 +80,13 @@
             // 
             this.tableLayoutPanel3.ColumnCount = 4;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 65F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel3.Controls.Add(this.pPlace, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.btnendSetting, 3, 0);
             this.tableLayoutPanel3.Controls.Add(this.btnDelete, 2, 0);
+            this.tableLayoutPanel3.Controls.Add(this.btnChangeName, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
@@ -121,7 +123,7 @@
             this.pPlace.Name = "pPlace";
             this.pPlace.RowCount = 1;
             this.pPlace.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.pPlace.Size = new System.Drawing.Size(718, 32);
+            this.pPlace.Size = new System.Drawing.Size(703, 32);
             this.pPlace.TabIndex = 1;
             // 
             // btnendSetting
@@ -135,6 +137,30 @@
             this.btnendSetting.Text = "X";
             this.btnendSetting.UseVisualStyleBackColor = true;
             this.btnendSetting.Click += new System.EventHandler(this.btnendSetting_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnDelete.Location = new System.Drawing.Point(768, 0);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(0);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(50, 32);
+            this.btnDelete.TabIndex = 2;
+            this.btnDelete.Text = "삭제";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnChangeName
+            // 
+            this.btnChangeName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnChangeName.Font = new System.Drawing.Font("굴림", 9F);
+            this.btnChangeName.Location = new System.Drawing.Point(703, 0);
+            this.btnChangeName.Margin = new System.Windows.Forms.Padding(0);
+            this.btnChangeName.Name = "btnChangeName";
+            this.btnChangeName.Size = new System.Drawing.Size(65, 32);
+            this.btnChangeName.TabIndex = 3;
+            this.btnChangeName.Text = "이름변경";
+            this.btnChangeName.UseVisualStyleBackColor = true;
             // 
             // pTable
             // 
@@ -157,18 +183,6 @@
             this.pTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.pTable.Size = new System.Drawing.Size(868, 362);
             this.pTable.TabIndex = 1;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnDelete.Location = new System.Drawing.Point(768, 0);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(0);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(50, 32);
-            this.btnDelete.TabIndex = 2;
-            this.btnDelete.Text = "삭제";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // ucSetting
             // 
@@ -193,5 +207,6 @@
         private System.Windows.Forms.TableLayoutPanel pTable;
         private System.Windows.Forms.Button btnendSetting;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnChangeName;
     }
 }
