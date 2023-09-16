@@ -70,27 +70,27 @@ namespace Unicon1.ucPanel
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private async void Ordered(object sender, EventArgs e)
-        {
-            try
-            {
-                WebRequest request = WebRequest.Create(apiOrderListUrl);
-                string responseFromServer = string.Empty;
-                request.Method = "GET";
-                request.ContentType = "application/json";
-                using (WebResponse response = request.GetResponse())
-                using (Stream dataStream = response.GetResponseStream())
-                using (StreamReader reader = new StreamReader(dataStream))
-                    responseFromServer = reader.ReadToEnd();
-                JObject jobect = JObject.Parse(responseFromServer);
-                JToken jtoken = jobect["data"];
-                foreach (JToken token in jtoken) textBoxResult.Text += token["user_name"].ToString() + "\r\n";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("오류 발생: " + ex.Message, "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        //private async void Ordered(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        WebRequest request = WebRequest.Create(apiOrderListUrl);
+        //        string responseFromServer = string.Empty;
+        //        request.Method = "GET";
+        //        request.ContentType = "application/json";
+        //        using (WebResponse response = request.GetResponse())
+        //        using (Stream dataStream = response.GetResponseStream())
+        //        using (StreamReader reader = new StreamReader(dataStream))
+        //            responseFromServer = reader.ReadToEnd();
+        //        JObject jobect = JObject.Parse(responseFromServer);
+        //        JToken jtoken = jobect["data"];
+        //        foreach (JToken token in jtoken) textBoxResult.Text += token["user_name"].ToString() + "\r\n";
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("오류 발생: " + ex.Message, "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
 
         public ucDetail(List<ucMenuStatus> table)
