@@ -21,7 +21,6 @@ namespace Unicon1
         ucPanel.ucTable ucTable = new ucPanel.ucTable();
         ucPanel.ucLogin ucLogin = new ucPanel.ucLogin();
         ucPanel.ucSetting ucSetting = new ucSetting();
-        ucPlaceSetting ucPlaceSetting = new ucPlaceSetting();
 
         List<ucMenuStatus>[,] _tableMenuList = new List<ucMenuStatus>[20, 100];
         int[,] _tablePayedPrice = new int[30, 100];
