@@ -87,6 +87,24 @@ namespace Unicon1
             _token = token.ToString();
             ucSetting.endSetting += UcSetting_endSetting;
             ucSetting.changePlace += UcSetting_changePlace;
+            ucSetting.placeSetting += UcSetting_placeSetting;
+        }
+
+        private void UcSetting_placeSetting(object sender, Button[,] tableStatus, Button[] placeStatus, int place)
+        {
+            ucPanel.ucPlaceSetting ucPlaceSetting = new ucPlaceSetting(tableStatus, placeStatus, _tableMenuList, _tablePayedPrice);
+            ucPlaceSetting.endPlaceSetting += UcPlaceSetting_endPlaceSetting;
+            pMain.Controls.Clear();
+            pMain.Controls.Add(ucPlaceSetting);
+        }
+
+        private void UcPlaceSetting_endPlaceSetting(object sender, Button[,] tableStatus, Button[] placeStatus, List<ucMenuStatus>[,] tableMenuList, int[,] tablePayedPrice)
+        {
+            pMain.Controls.Clear();
+            pMain.Controls.Add(ucSetting);
+            _tableMenuList = tableMenuList;
+            _tablePayedPrice = tablePayedPrice;
+            ucSetting.SetTable(tableStatus, placeStatus, 1);
         }
 
         private void UcSetting_changePlace(object sender, Button[,] _tableStatus, Button[] _placeStatus, int place)

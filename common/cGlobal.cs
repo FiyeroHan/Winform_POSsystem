@@ -28,6 +28,8 @@ namespace Unicon1
     public delegate void passprice(object sender, int price);
     public delegate void setting(object sender, Button[,] _tableStatus, Button[] _placeStatus, int place);
     public delegate void changePlace(object sender, Button[,] _tableStatus, Button[] _placeStatus, int place);
+    public delegate void placeSetting(object sender, Button[,] tableStatus, Button[] placeStatus, int place);
+    public delegate void endPlaceSetting(object sender, Button[,] tableStatus, Button[] placeStatus, List<ucMenuStatus>[,] tableMenuList, int[,] tablePayedPrice);
     
 
     struct menu_info

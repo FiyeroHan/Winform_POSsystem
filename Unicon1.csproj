@@ -122,6 +122,12 @@
     <Compile Include="ucPanel\ucPlaceSetting.Designer.cs">
       <DependentUpon>ucPlaceSetting.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucPanel\ucPlaceStatus.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucPanel\ucPlaceStatus.Designer.cs">
+      <DependentUpon>ucPlaceStatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucPanel\ucSetting.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -202,6 +208,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucPanel\ucPlaceSetting.resx">
       <DependentUpon>ucPlaceSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucPanel\ucPlaceStatus.resx">
+      <DependentUpon>ucPlaceStatus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucPanel\ucSetting.resx">
       <DependentUpon>ucSetting.cs</DependentUpon>

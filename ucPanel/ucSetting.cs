@@ -15,6 +15,7 @@ namespace Unicon1.ucPanel
     {
         public event endSetting endSetting;
         public event changePlace changePlace;
+        public event placeSetting placeSetting;
 
         Button[,] _tableStatus = new Button[30, 30];
         Button[] _placeStatus = new Button[30];
@@ -67,7 +68,7 @@ namespace Unicon1.ucPanel
                 }
                 else
                 {
-                    place = int.Parse(btn.Text.Substring(8));
+                    place = int.Parse(btn.Name.Substring(8));
                     changePlace(sender, _tableStatus, _placeStatus, int.Parse(btn.Name.Substring(8)));
                 }
             }
@@ -121,8 +122,10 @@ namespace Unicon1.ucPanel
             pTable.Controls.Clear();
             for(int i = 1; i < 14; i++)
             {
+                Console.WriteLine();
                 for(int j = 1; j < 25; j++)
                 {
+                    Console.WriteLine(_tableStatus[i, j].Name);
                     Button btn = new Button();
                     if (_tableStatus[i, j].Name.Substring(0, 8) == "btnEmpty")
                     {
@@ -197,7 +200,7 @@ namespace Unicon1.ucPanel
 
         private void btnPlaceSetting_Click(object sender, EventArgs e)
         {
-
+            placeSetting(sender, _tableStatus, _placeStatus, 1);
         }
     }
 }
