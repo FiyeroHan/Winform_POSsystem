@@ -4,17 +4,22 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using System.Windows.Forms;
+using HtmlAgilityPack;
+using System.Net;
+using System.IO;
+using Newtonsoft.Json.Linq;
 
 namespace Unicon1.ucPanel
 {
     public partial class ucLogin : UserControl
     {
         public event login LoginSuccess;
-        string id = "user";
-        string pw = "123";
+
         public ucLogin()
         {
             InitializeComponent();
@@ -29,11 +34,34 @@ namespace Unicon1.ucPanel
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (tboxID.Text == id && tboxPW.Text == pw) LoginSuccess(sender);
-            else if (tboxID.Text.Length == 0) MessageBox.Show("아이디를 입력해주세요.");
-            else if (tboxPW.Text.Length == 0) MessageBox.Show("비밀번호를 입력해주세요");
-            else if (tboxID.Text != id) MessageBox.Show("잘못된 아이디입니다.");
-            else if (tboxPW.Text != pw) MessageBox.Show("잘못된 비밀번호입니다.");
+            string id = tboxID.Text;
+            string pw = tboxPW.Text;
+            string apiUrl = "http://hoshi-kirby.xyz/api/v1/user/login?id=" + id + "&pw=" + pw;
+            try
+            {
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(apiUrl);
+                string responseFromServer = string.Empty;
+                request.Method = "GET";
+                request.ContentType = "application/json";
+                using (WebResponse response = request.GetResponse())
+                using (Stream dataStream = response.GetResponseStream())
+                using (StreamReader reader = new StreamReader(dataStream))
+                    responseFromServer = reader.ReadToEnd();
+                JObject jobect = JObject.Parse(responseFromServer);
+                JToken jtoken = jobect["data"];
+                Console.WriteLine(jtoken["access_token"]);
+                if (jtoken["access_token"] == null) MessageBox.Show(jtoken["message"].ToString());
+                else LoginSuccess(sender, jtoken["access_token"]);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("오류 발생: " + ex.Message, "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void PressEnter(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter) btnLogin_Click(sender, e);
         }
     }
 }

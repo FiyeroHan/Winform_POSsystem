@@ -39,12 +39,12 @@
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnBackTable = new System.Windows.Forms.Button();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.button12 = new System.Windows.Forms.Button();
+            this.btnDivPay = new System.Windows.Forms.Button();
             this.btnMixedPay = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.btnCashPay = new System.Windows.Forms.Button();
+            this.btnCardPay = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblPayWord = new System.Windows.Forms.Label();
             this.lblTotalPrice = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.fpMenu = new System.Windows.Forms.FlowLayoutPanel();
@@ -195,10 +195,10 @@
             this.tableLayoutPanel6.ColumnCount = 2;
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Controls.Add(this.button12, 1, 1);
+            this.tableLayoutPanel6.Controls.Add(this.btnDivPay, 1, 1);
             this.tableLayoutPanel6.Controls.Add(this.btnMixedPay, 0, 1);
-            this.tableLayoutPanel6.Controls.Add(this.button10, 1, 0);
-            this.tableLayoutPanel6.Controls.Add(this.button9, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.btnCashPay, 1, 0);
+            this.tableLayoutPanel6.Controls.Add(this.btnCardPay, 0, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(2, 370);
             this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(2);
@@ -209,18 +209,18 @@
             this.tableLayoutPanel6.Size = new System.Drawing.Size(387, 72);
             this.tableLayoutPanel6.TabIndex = 2;
             // 
-            // button12
+            // btnDivPay
             // 
-            this.button12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.button12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button12.Location = new System.Drawing.Point(195, 38);
-            this.button12.Margin = new System.Windows.Forms.Padding(2);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(190, 32);
-            this.button12.TabIndex = 3;
-            this.button12.Text = "분할결제";
-            this.button12.UseVisualStyleBackColor = false;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
+            this.btnDivPay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnDivPay.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnDivPay.Location = new System.Drawing.Point(195, 38);
+            this.btnDivPay.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDivPay.Name = "btnDivPay";
+            this.btnDivPay.Size = new System.Drawing.Size(190, 32);
+            this.btnDivPay.TabIndex = 3;
+            this.btnDivPay.Text = "분할결제";
+            this.btnDivPay.UseVisualStyleBackColor = false;
+            this.btnDivPay.Click += new System.EventHandler(this.btnDivPay_Click);
             // 
             // btnMixedPay
             // 
@@ -235,37 +235,38 @@
             this.btnMixedPay.UseVisualStyleBackColor = false;
             this.btnMixedPay.Click += new System.EventHandler(this.btnMixedPay_Click);
             // 
-            // button10
+            // btnCashPay
             // 
-            this.button10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button10.Location = new System.Drawing.Point(195, 2);
-            this.button10.Margin = new System.Windows.Forms.Padding(2);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(190, 32);
-            this.button10.TabIndex = 1;
-            this.button10.Text = "현금";
-            this.button10.UseVisualStyleBackColor = false;
+            this.btnCashPay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnCashPay.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCashPay.Location = new System.Drawing.Point(195, 2);
+            this.btnCashPay.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCashPay.Name = "btnCashPay";
+            this.btnCashPay.Size = new System.Drawing.Size(190, 32);
+            this.btnCashPay.TabIndex = 1;
+            this.btnCashPay.Text = "현금";
+            this.btnCashPay.UseVisualStyleBackColor = false;
+            this.btnCashPay.Click += new System.EventHandler(this.btnCashPay_Click);
             // 
-            // button9
+            // btnCardPay
             // 
-            this.button9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.button9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button9.Location = new System.Drawing.Point(2, 2);
-            this.button9.Margin = new System.Windows.Forms.Padding(2);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(189, 32);
-            this.button9.TabIndex = 0;
-            this.button9.Text = "신용카드";
-            this.button9.UseVisualStyleBackColor = false;
+            this.btnCardPay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnCardPay.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCardPay.Location = new System.Drawing.Point(2, 2);
+            this.btnCardPay.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCardPay.Name = "btnCardPay";
+            this.btnCardPay.Size = new System.Drawing.Size(189, 32);
+            this.btnCardPay.TabIndex = 0;
+            this.btnCardPay.Text = "신용카드";
+            this.btnCardPay.UseVisualStyleBackColor = false;
             // 
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.ColumnCount = 3;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.27649F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.646F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel4.Controls.Add(this.label2, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.lblPayWord, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.lblTotalPrice, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.label4, 2, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -277,28 +278,28 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(387, 45);
             this.tableLayoutPanel4.TabIndex = 4;
             // 
-            // label2
+            // lblPayWord
             // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("굴림", 15F);
-            this.label2.Location = new System.Drawing.Point(2, 0);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 45);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "결제금액:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblPayWord.AutoSize = true;
+            this.lblPayWord.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblPayWord.Font = new System.Drawing.Font("굴림", 15F);
+            this.lblPayWord.Location = new System.Drawing.Point(2, 0);
+            this.lblPayWord.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPayWord.Name = "lblPayWord";
+            this.lblPayWord.Size = new System.Drawing.Size(148, 45);
+            this.lblPayWord.TabIndex = 0;
+            this.lblPayWord.Text = "총결제금액:";
+            this.lblPayWord.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblTotalPrice
             // 
             this.lblTotalPrice.AutoSize = true;
             this.lblTotalPrice.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblTotalPrice.Font = new System.Drawing.Font("굴림", 15F);
-            this.lblTotalPrice.Location = new System.Drawing.Point(118, 0);
+            this.lblTotalPrice.Location = new System.Drawing.Point(154, 0);
             this.lblTotalPrice.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotalPrice.Name = "lblTotalPrice";
-            this.lblTotalPrice.Size = new System.Drawing.Size(228, 45);
+            this.lblTotalPrice.Size = new System.Drawing.Size(192, 45);
             this.lblTotalPrice.TabIndex = 1;
             this.lblTotalPrice.Text = "0";
             this.lblTotalPrice.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -358,14 +359,14 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblPayWord;
         private System.Windows.Forms.Label lblTotalPrice;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.FlowLayoutPanel fpMenu;
-        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button btnDivPay;
         private System.Windows.Forms.Button btnMixedPay;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button btnCashPay;
+        private System.Windows.Forms.Button btnCardPay;
         private System.Windows.Forms.Panel pLT;
         private System.Windows.Forms.Button btnBackTable;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;

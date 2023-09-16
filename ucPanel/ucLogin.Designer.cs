@@ -41,7 +41,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("굴림", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(401, 135);
+            this.label1.Location = new System.Drawing.Point(402, 135);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(192, 64);
             this.label1.TabIndex = 0;
@@ -49,23 +49,25 @@
             // 
             // tboxID
             // 
-            this.tboxID.Location = new System.Drawing.Point(396, 231);
+            this.tboxID.Location = new System.Drawing.Point(397, 231);
             this.tboxID.Name = "tboxID";
             this.tboxID.Size = new System.Drawing.Size(100, 21);
             this.tboxID.TabIndex = 1;
+            this.tboxID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PressEnter);
             // 
             // tboxPW
             // 
-            this.tboxPW.Location = new System.Drawing.Point(396, 273);
+            this.tboxPW.Location = new System.Drawing.Point(397, 273);
             this.tboxPW.Name = "tboxPW";
             this.tboxPW.PasswordChar = '*';
             this.tboxPW.Size = new System.Drawing.Size(100, 21);
             this.tboxPW.TabIndex = 2;
+            this.tboxPW.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PressEnter);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(371, 236);
+            this.label2.Location = new System.Drawing.Point(372, 236);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(16, 12);
             this.label2.TabIndex = 3;
@@ -74,7 +76,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(366, 278);
+            this.label3.Location = new System.Drawing.Point(367, 278);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(23, 12);
             this.label3.TabIndex = 4;
@@ -82,7 +84,7 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(513, 246);
+            this.btnLogin.Location = new System.Drawing.Point(514, 246);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 23);
             this.btnLogin.TabIndex = 5;
@@ -93,7 +95,7 @@
             // cboxPWVisible
             // 
             this.cboxPWVisible.AutoSize = true;
-            this.cboxPWVisible.Location = new System.Drawing.Point(396, 300);
+            this.cboxPWVisible.Location = new System.Drawing.Point(397, 300);
             this.cboxPWVisible.Name = "cboxPWVisible";
             this.cboxPWVisible.Size = new System.Drawing.Size(100, 16);
             this.cboxPWVisible.TabIndex = 6;

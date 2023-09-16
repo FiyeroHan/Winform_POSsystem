@@ -24,89 +24,50 @@ namespace Unicon1.ucPanel
 
         public event backToTable BackToTable;
 
+        Form1 _form1 = new Form1();
         ucSandwitch _ucSandwitch = new ucSandwitch();
-        ucPasta _ucPasta = new ucPasta();
+        ucPasta _ucPasta;
         ucSteak _ucSteak = new ucSteak();
         ucMenuStatus _ucMenuStatus = new ucMenuStatus();
-        ucPayment _ucPayment = new ucPayment();
+        
         ucPaymentLT _ucPaymentLT = new ucPaymentLT();
         UserControl1 _ucUserControl1 = new UserControl1();
         ucDucth _ucDutch = new ucDucth();
         ucDucth2 _ucDutch2 = new ucDucth2();
- //       ucPayType _ucPayType = new ucPayType();
- //       ucPayTypeLT _ucPayTypeLT = new ucPayTypeLT();
+        ucPayType _ucPayType = new ucPayType();
+        ucPayTypeLT _ucPayTypeLT = new ucPayTypeLT();
+        
+
+        string _token = string.Empty;
+        List<string> _storecode = new List<string>();
 
         private List<ucMenuStatus> _table = new List<ucMenuStatus>();
 
         public int total_price = 0;
+        public int payed_price = 0;
+        public int tableNum = 0;
+        public int place = 0;
 
 
         //       ucMenuStatus[] menuList = new ucMenuStatus[20];
 
-        private async void buttonSendRequest_Click(object sender, EventArgs e)
+        public ucDetail(List<ucMenuStatus> table, int payed_price, int tableNum, int place)
         {
-            try
-            {
-                WebRequest request = WebRequest.Create(apiUserListUrl);
-                string responseFromServer = string.Empty;
-                request.Method = "GET";
-                request.ContentType = "application/json";
-                using (WebResponse response = request.GetResponse())
-                using (Stream dataStream = response.GetResponseStream())
-                using (StreamReader reader = new StreamReader(dataStream))
-                    responseFromServer = reader.ReadToEnd();
-                JObject jobect = JObject.Parse(responseFromServer);
-                JToken jtoken = jobect["data"];
-                foreach (JToken token in jtoken) textBoxResult.Text += token["user_name"].ToString()+"\r\n";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("오류 발생: " + ex.Message, "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        /// <summary>
-        /// 주문이 들어왔을때 실행해서 변수에 집어넣는 함수
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        //private async void Ordered(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        WebRequest request = WebRequest.Create(apiOrderListUrl);
-        //        string responseFromServer = string.Empty;
-        //        request.Method = "GET";
-        //        request.ContentType = "application/json";
-        //        using (WebResponse response = request.GetResponse())
-        //        using (Stream dataStream = response.GetResponseStream())
-        //        using (StreamReader reader = new StreamReader(dataStream))
-        //            responseFromServer = reader.ReadToEnd();
-        //        JObject jobect = JObject.Parse(responseFromServer);
-        //        JToken jtoken = jobect["data"];
-        //        foreach (JToken token in jtoken) textBoxResult.Text += token["user_name"].ToString() + "\r\n";
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("오류 발생: " + ex.Message, "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
-
-
-        public ucDetail(List<ucMenuStatus> table)
-        {
-
+            this.tableNum = tableNum;
             _table = table;
-
+            this.payed_price = payed_price;
+            this.place = place;
+            Console.WriteLine(payed_price.ToString());
             InitializeComponent();
+            
             _ucSandwitch.addlist += Add_status;
-            _ucPasta.addlist += Add_status;
             _ucSteak.addlist += Add_status;
             _ucUserControl1.FloatMenu += fMenulist;
             _ucPaymentLT.floatPayment += fPaymentPage;
             _ucPaymentLT.backToMenu += BackToMenu;
-//            _ucPayTypeLT.backToMenu += BackToMenu;
+            _ucPayTypeLT.backToMenu += BackToMenu;
             _ucDutch.floatdutch += fDutch;
+            _form1.AccessToken += foo;
 
             pLT.Controls.Clear();
             pLT.Controls.Add(_ucUserControl1);
@@ -121,6 +82,82 @@ namespace Unicon1.ucPanel
             }
 
             lblTotalPrice.Text = total_price.ToString();
+
+            string apiUrl = "http://hoshi-kirby.xyz/api/v1/order/store/list";
+            try
+            {
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(apiUrl);
+                string responseFromServer = string.Empty;
+                request.Method = "GET";
+                request.ContentType = "application/json";
+                //request.PreAuthenticate = true;
+                //request.Headers.Add("Authorization", "Bearer " + _token);
+                using (WebResponse response = request.GetResponse())
+                using (Stream dataStream = response.GetResponseStream())
+                using (StreamReader reader = new StreamReader(dataStream))
+                    responseFromServer = reader.ReadToEnd();
+                JObject jobect = JObject.Parse(responseFromServer);
+                JToken jtoken = jobect["stores"];
+                foreach (JToken token in jtoken)
+                {
+                    _storecode.Add(token["store_code"].ToString());
+                    textBoxResult.Text += token["store_code"].ToString() + "\r\n";
+                }
+                //textBoxResult.Text += jtoken.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("오류 발생: " + ex.Message, "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            Console.WriteLine(_storecode[0]);
+            
+        }
+
+
+        private void _ucPayment_inputprice(object sender, int price)
+        {
+            lblTotalPrice.Text = price.ToString();
+        }
+
+        public void setToken(string token)
+        {
+            _token = token;
+        }
+
+        public int getTotalPrice()
+        {
+            return total_price;
+        }
+
+        private void foo(object sender)
+        {
+            /*string apiUrl = "http://hoshi-kirby.xyz/api/v1/order/store/list";
+            try
+            {
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(apiUrl);
+                string responseFromServer = string.Empty;
+                request.Method = "GET";
+                request.ContentType = "application/json";
+                //request.PreAuthenticate = true;
+                //request.Headers.Add("Authorization", "Bearer " + _token);
+                using (WebResponse response = request.GetResponse())
+                using (Stream dataStream = response.GetResponseStream())
+                using (StreamReader reader = new StreamReader(dataStream))
+                    responseFromServer = reader.ReadToEnd();
+                JObject jobect = JObject.Parse(responseFromServer);
+                JToken jtoken = jobect["stores"];
+                foreach(JToken token in jtoken)
+                {
+                    _storecode.Add(token["store_code"].ToString());
+                    textBoxResult.Text += token["store_code"].ToString()+"\r\n";
+                }
+                //textBoxResult.Text += jtoken.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("오류 발생: " + ex.Message, "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }*/
+            
         }
 
         private void BackToMenu(object sender)
@@ -129,6 +166,9 @@ namespace Unicon1.ucPanel
 
             pLT.Controls.Clear();
             pLT.Controls.Add(_ucUserControl1);
+
+            lblPayWord.Text = "총결제금액:";
+            lblTotalPrice.Text = total_price.ToString();
         }
 
         private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
@@ -177,6 +217,8 @@ namespace Unicon1.ucPanel
                     pMenuList.Controls.Add(_ucSandwitch);
                     break;
                 case (MenuList.Pasta):
+                    _ucPasta = new ucPasta(_storecode[0]);
+                    _ucPasta.addlist += Add_status;
                     pMenuList.Controls.Clear();
                     pMenuList.Controls.Add(_ucPasta);
                     break;
@@ -189,14 +231,18 @@ namespace Unicon1.ucPanel
 
         }
 
-        private void button12_Click(object sender, EventArgs e)
+        private void btnDivPay_Click(object sender, EventArgs e)
         {
+            ucPayment _ucPayment = new ucPayment(total_price, payed_price);
+            _ucPayment.inputprice += _ucPayment_inputprice;
             pMenuList.Controls.Clear();
             pMenuList.Controls.Add(_ucPayment);
-
+            
             pLT.Controls.Clear();
             pLT.Controls.Add(_ucPaymentLT);
 
+            lblPayWord.Text = "이번결제금액:";
+            lblTotalPrice.Text = "0";
         }
 
         private void fPaymentPage(object oSender, string page)
@@ -204,6 +250,8 @@ namespace Unicon1.ucPanel
             switch (page)
             {
                 case ("direct"):
+                    ucPayment _ucPayment = new ucPayment(total_price, payed_price);
+                    _ucPayment.inputprice += _ucPayment_inputprice;
                     pMenuList.Controls.Clear();
                     pMenuList.Controls.Add(_ucPayment);
                     break;
@@ -234,21 +282,41 @@ namespace Unicon1.ucPanel
 
         private void btnBackTable_Click(object sender, EventArgs e)
         {
-            BackToTable("btnBackTable", _table);
+            BackToTable(sender, _table, payed_price, place, tableNum);
         }
 
         private void btnMixedPay_Click(object sender, EventArgs e)
         {
             pMenuList.Controls.Clear();
-//            pMenuList.Controls.Add(_ucPayType);
+            pMenuList.Controls.Add(_ucPayType);
 
             pLT.Controls.Clear();
- //           pLT.Controls.Add(_ucPayTypeLT);
+            pLT.Controls.Add(_ucPayTypeLT);
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            buttonSendRequest_Click(sender, e);
+            pLT.Controls.Clear();
+            pMenuList.Controls.Clear();
+            UserControl1 userControl1 = new UserControl1();
+            _ucUserControl1 = userControl1;
+            pLT.Controls.Add(_ucUserControl1);
+            _ucUserControl1.FloatMenu += fMenulist;
+        }
+
+        private void btnCashPay_Click(object sender, EventArgs e)
+        {
+            if(pMenuList.Controls.Count == 0) { return; }
+            foreach (Control c in pMenuList.Controls)
+            {
+                if (c == _ucPasta || c == _ucSandwitch || c == _ucSteak || c == textBoxResult) return;
+            }
+            payed_price += int.Parse(lblTotalPrice.Text);
+            lblTotalPrice.Text = "0";
+            ucPayment _ucPayment = new ucPayment(total_price, payed_price);
+            _ucPayment.inputprice += _ucPayment_inputprice;
+            pMenuList.Controls.Clear();
+            pMenuList.Controls.Add(_ucPayment);
         }
 
         //private void btnMixedPay_Click(object sender, EventArgs e)
@@ -263,5 +331,33 @@ namespace Unicon1.ucPanel
         //        // Do Something...
         //    }
         //        }
+        
+        
+        /// <summary>
+        /// 주문이 들어왔을때 실행해서 변수에 집어넣는 함수
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        //private async void Ordered(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        WebRequest request = WebRequest.Create(apiOrderListUrl);
+        //        string responseFromServer = string.Empty;
+        //        request.Method = "GET";
+        //        request.ContentType = "application/json";
+        //        using (WebResponse response = request.GetResponse())
+        //        using (Stream dataStream = response.GetResponseStream())
+        //        using (StreamReader reader = new StreamReader(dataStream))
+        //            responseFromServer = reader.ReadToEnd();
+        //        JObject jobect = JObject.Parse(responseFromServer);
+        //        JToken jtoken = jobect["data"];
+        //        foreach (JToken token in jtoken) textBoxResult.Text += token["user_name"].ToString() + "\r\n";
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("오류 발생: " + ex.Message, "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
     }
 }

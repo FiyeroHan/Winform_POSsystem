@@ -10,14 +10,22 @@ using System.Windows.Forms;
 using Unicon1.ucPanel;
 using System.Security.Permissions;
 using System.Runtime.InteropServices;
-
+using Newtonsoft.Json.Linq;
 
 namespace Unicon1
 {
     public partial class Form1 : Form
     {
-        ucPanel.ucTable ucTable = new ucPanel.ucTable();
+        public event passtoken AccessToken;
+
+        ucPanel.ucTable[] ucTable = new ucPanel.ucTable[20];
         ucPanel.ucLogin ucLogin = new ucPanel.ucLogin();
+        ucPanel.ucSetting ucSetting = new ucSetting();
+
+        List<ucMenuStatus>[,] _tableMenuList = new List<ucMenuStatus>[20, 100];
+        int[,] _tablePayedPrice = new int[30, 100];
+
+        string _token = string.Empty;
 
         public Form1()
         {
@@ -41,7 +49,7 @@ namespace Unicon1
             Size = parent.ClientSize;
             Location = parent.PointToScreen(Point.Empty);
 
-        }
+        }  
 
 
         public static DialogResult ShowDialog(Form parent, Form dialog, double opacity = 0.65)
@@ -60,18 +68,70 @@ namespace Unicon1
         {
             ucLogin.LoginSuccess += UcLogin_LoginSuccess;
             pMain.Controls.Add(ucLogin);
+            for (int i = 0; i < 20; i++)
+            {
+                for (int j = 0; j < 100; j++) _tableMenuList[i, j] = new List<ucMenuStatus>();
+            }
+            for(int i = 0; i < 20; i++)
+            {
+                ucTable[i] = new ucPanel.ucTable();
+            }   
         }
 
-        private void UcLogin_LoginSuccess(object sender)
+        private void UcLogin_LoginSuccess(object sender, JToken token)
         {
             pMain.Controls.Remove(ucLogin);
-            ucTable.FloatDetail += fDetail;
-            pMain.Controls.Add(ucTable);
+            for(int i = 0; i < 20; i++)
+            {
+                ucTable[i].FloatDetail += fDetail;
+                ucTable[i].setting += UcTable_setting;
+                ucTable[i].changePlace += UCTable_ChangePlace;
+            }
+
+            pMain.Controls.Add(ucTable[1]);
+            _token = token.ToString();
+            ucSetting.endSetting += UcSetting_endSetting;
+            ucSetting.changePlace += UcSetting_changePlace;
         }
 
-        private void fDetail(object oSender, List<ucPanel.ucMenuStatus> table)
+        private void UcSetting_changePlace(object sender, Button[,] _tableStatus, Button[] _placeStatus, int place)
         {
-            ucPanel.ucDetail ucDetail = new ucPanel.ucDetail(table);
+            Button btn = sender as Button;
+            place = int.Parse(btn.Name.Substring(8));
+            pMain.Controls.Clear();
+            pMain.Controls.Add(ucSetting);
+            ucSetting.SetTable(_tableStatus, _placeStatus, place);
+        }
+
+        private void UCTable_ChangePlace(object sender, Button[,] _tableStatus, Button[] _placeStatus, int place)
+        {
+            Button btn = sender as Button;
+            place = int.Parse(btn.Name.Substring(8));
+            pMain.Controls.Clear();
+            pMain.Controls.Add(ucTable[place]);
+            ucTable[place].ShowTable(_tableStatus, _placeStatus, place);
+        }
+
+        private void UcTable_setting(object sender, Button[,] _tableStatus, Button[] _placeStatus, int place)
+        {
+            pMain.Controls.Clear();
+            pMain.Controls.Add(ucSetting);
+            ucSetting.SetTable(_tableStatus, _placeStatus, place);
+        }
+
+        private void UcSetting_endSetting(object sender, Button[,] _tableStatus, Button[] _placeStatus, int place)
+        {
+            pMain.Controls.Clear();
+            pMain.Controls.Add(ucTable[place]);
+            ucTable[place].ShowTable(_tableStatus, _placeStatus, place);
+        }
+
+        private void fDetail(object oSender, int place)
+        {
+            Button btn = oSender as Button;
+            int tableNum = int.Parse(btn.Name.Substring(8));
+            ucPanel.ucDetail ucDetail = new ucPanel.ucDetail(_tableMenuList[place, tableNum], _tablePayedPrice[place, tableNum], place, tableNum);
+            ucDetail.setToken(_token);
             ucDetail.BackToTable += fTable;
 
             pMain.Controls.Clear();
@@ -80,13 +140,15 @@ namespace Unicon1
 
         }
 
-        private void fTable(object oSender, List<ucPanel.ucMenuStatus> table)
+        private void fTable(object oSender, List<ucPanel.ucMenuStatus> table, int payed_price, int tableNum, int place ) 
         {
+            _tableMenuList[place, tableNum] = table;
+            _tablePayedPrice[place, tableNum] = payed_price;
             pMain.Controls.Clear();
-            pMain.Controls.Add(ucTable);
+            pMain.Controls.Add(ucTable[place]);
         }
 
-        public void callValues(object tableNum, object price, object name, object detail)
+        /*public void callValues(object tableNum, object price, object name, object detail)
         {
             int itableNum = (int)tableNum;
             int iprice = (int)price;
@@ -120,7 +182,7 @@ namespace Unicon1
                     break;
             }
 
-        }
+        }*/
 
         private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {

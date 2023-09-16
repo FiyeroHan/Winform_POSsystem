@@ -12,59 +12,121 @@ namespace Unicon1.ucPanel
 {
     public partial class ucTable : UserControl
     {
+        public event setting setting;
         public event floatDetail FloatDetail;
+        public event changePlace changePlace;
 
-        public List<ucPanel.ucMenuStatus> table1 = new List<ucPanel.ucMenuStatus>();
-        public List<ucPanel.ucMenuStatus> table2 = new List<ucPanel.ucMenuStatus>();
-        public List<ucPanel.ucMenuStatus> table3 = new List<ucPanel.ucMenuStatus>();
-        public List<ucPanel.ucMenuStatus> table4 = new List<ucPanel.ucMenuStatus>();
-        public List<ucPanel.ucMenuStatus> table5 = new List<ucPanel.ucMenuStatus>();
-        public List<ucPanel.ucMenuStatus> table6 = new List<ucPanel.ucMenuStatus>();
-        public List<ucPanel.ucMenuStatus> table7 = new List<ucPanel.ucMenuStatus>();
+        public Button[,] _tableStatus = new Button[30, 30];
+        public Button[] _placeStatus = new Button[30];
+        int place = 1;
 
         public ucTable()
         {
             InitializeComponent();
-
-            for (int i = 0; i < 7; i++)
+            for (int i = 1; i < 14; i++)
             {
-
+                for(int j = 1; j < 25; j++)
+                {
+                    Button btn = new Button();
+                    btn.Text = "+";
+                    btn.Name = "btnEmpty" + j.ToString();
+                    btn.Dock = DockStyle.Fill;
+                    btn.BackColor = Color.Transparent;
+                    btn.Click += Btn_Click;
+                    _tableStatus[i, j] = btn;
+                }
+            }
+            for (int i = 1; i < 14; i++)
+            {
+                Button btn = new Button();
+                btn.Text = "";
+                btn.Name = "btnPlace" + i.ToString();
+                btn.Dock = DockStyle.Fill;
+                btn.FlatStyle = FlatStyle.Flat;
+                btn.FlatAppearance.BorderSize = 0;
+                btn.BackColor = Color.Transparent;
+                btn.FlatAppearance.MouseDownBackColor = Color.Transparent;
+                btn.FlatAppearance.MouseOverBackColor = Color.Transparent;
+                btn.Click += ChangePlace;
+                _placeStatus[i] = btn;
+                pPlace.Controls.Add(btn);
             }
         }
 
-        private void btnTable1_Click(object sender, EventArgs e)
+        private void ChangePlace(object sender, EventArgs e)
         {
-            FloatDetail("Table1 Button", table1);
+            Button btn = sender as Button;
+            
+            if(btn.Text != "")
+            {
+                place = int.Parse(btn.Name.Substring(8));
+                changePlace(sender, _tableStatus, _placeStatus, place);
+            }
         }
 
-        private void btnTable2_Click(object sender, EventArgs e)
+        private void Btn_Click(object sender, EventArgs e)
         {
-            FloatDetail("Table2 Button", table2);
+            FloatDetail(sender, place);
         }
 
-        private void btnTable3_Click(object sender, EventArgs e)
+        public void ShowTable(Button[,] _tableStatus, Button[] _placeStatus, int place)
         {
-            FloatDetail("Table3 Button", table3);
+            this.place = place;
+            pPlace.Controls.Clear();
+            for(int i = 1; i < 14; i++)
+            {
+                Button btn = new Button();
+                btn.Text = _placeStatus[i].Text == "+" ? "" : _placeStatus[i].Text;
+                btn.Name = _placeStatus[i].Name;
+                btn.Dock = DockStyle.Fill;
+                btn.FlatStyle = FlatStyle.Flat;
+                btn.FlatAppearance.BorderSize = 0;
+                btn.FlatAppearance.MouseDownBackColor = Color.Transparent;
+                btn.FlatAppearance.MouseOverBackColor = Color.Transparent;
+                btn.Click += ChangePlace;
+                this._placeStatus[i] = btn;
+                pPlace.Controls.Add(this._placeStatus[i]);
+                //for(int j = 1; j < 25; j++)
+            }
+
+            pTable.Controls.Clear();
+            for (int i = 1; i < 14; i++)
+            {
+                for(int j = 1; j < 25; j++)
+                {
+                    if (_tableStatus[i, j].Name.Substring(0, 8) == "btnEmpty")
+                    {
+                        Button btn = new Button();
+                        btn.Text = " ";
+                        btn.Name = "btnEmpty" + j.ToString();
+                        btn.Dock = DockStyle.Fill;
+                        btn.BackColor = Color.Transparent;
+                        btn.FlatStyle = FlatStyle.Flat;
+                        btn.FlatAppearance.BorderSize = 0;
+                        btn.FlatAppearance.MouseDownBackColor = Color.Transparent;
+                        btn.FlatAppearance.MouseOverBackColor = Color.Transparent;
+                        this._tableStatus[i, j] = btn;
+                    }
+                    else
+                    {
+                        Button btn = new Button();
+                        btn.Text = _tableStatus[i, j].Text;
+                        btn.Name = _tableStatus[i, j].Name;
+                        btn.Dock = DockStyle.Fill;
+                        btn.BackColor = Color.White;
+                        btn.Click += Btn_Click;
+                        this._tableStatus[i, j] = btn;
+                        
+                    }
+                    if(i == place) pTable.Controls.Add(this._tableStatus[i, j]);
+                }
+            }
         }
 
-        private void btnTable7_Click(object sender, EventArgs e)
-        {
-            FloatDetail("Table7 Button", table7);
-        }
 
-        private void btnTable6_Click(object sender, EventArgs e)
+        private void btnSetting_Click(object sender, EventArgs e)
         {
-            FloatDetail("Table6 Button", table6);
-        }
-
-        private void btnTable5_Click(object sender, EventArgs e)
-        {
-            FloatDetail("Table5 Button", table5);
-        }
-
-        private void btnTable4_Click(object sender, EventArgs e)
-        {
-            FloatDetail("Table4 Button", table4);
+            setting(sender, _tableStatus, _placeStatus, 1);
         }
     }
 }
