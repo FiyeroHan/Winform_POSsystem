@@ -19,7 +19,8 @@ namespace Unicon1.ucPanel
     public partial class ucDetail : UserControl
     {
         private readonly HttpClient httpClient = new HttpClient();
-        private readonly string apiUrl = "http://hoshi-kirby.xyz/api/v1/user/list";
+        private readonly string apiUserListUrl = "http://hoshi-kirby.xyz/api/v1/user/list";
+        private readonly string apiOrderListUrl = "http://hoshi-kirby.xyz/api/v1/order/list";
 
         public event backToTable BackToTable;
 
@@ -111,6 +112,7 @@ namespace Unicon1.ucPanel
             Console.WriteLine(_storecode[0]);
             
         }
+
 
         private void _ucPayment_inputprice(object sender, int price)
         {
@@ -329,5 +331,33 @@ namespace Unicon1.ucPanel
         //        // Do Something...
         //    }
         //        }
+        
+        
+        /// <summary>
+        /// 주문이 들어왔을때 실행해서 변수에 집어넣는 함수
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        //private async void Ordered(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        WebRequest request = WebRequest.Create(apiOrderListUrl);
+        //        string responseFromServer = string.Empty;
+        //        request.Method = "GET";
+        //        request.ContentType = "application/json";
+        //        using (WebResponse response = request.GetResponse())
+        //        using (Stream dataStream = response.GetResponseStream())
+        //        using (StreamReader reader = new StreamReader(dataStream))
+        //            responseFromServer = reader.ReadToEnd();
+        //        JObject jobect = JObject.Parse(responseFromServer);
+        //        JToken jtoken = jobect["data"];
+        //        foreach (JToken token in jtoken) textBoxResult.Text += token["user_name"].ToString() + "\r\n";
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("오류 발생: " + ex.Message, "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
     }
 }
