@@ -5,6 +5,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 using System.Net.Http;
+using System.IO;
+using Newtonsoft.Json.Linq;
+using System.Net;
+using Newtonsoft.Json;
 
 
 namespace Unicon1
@@ -17,6 +21,7 @@ namespace Unicon1
         [STAThread]
         static void Main()
         {
+
             TimerCallback callback = state => SendHttpRequest();
 
             // 1초마다 콜백 메서드 실행
@@ -32,32 +37,55 @@ namespace Unicon1
 
         static async void SendHttpRequest()
         {
+            // HTTP 요청을 보낼 URL 설정
+            string apiOrderListUrl = "http://hoshi-kirby.xyz/api/v1/order/list";
+
             try
             {
-                // HTTP 요청을 보낼 URL 설정
-                string url = "http://hoshi-kirby.xyz/api/v1/order/list";
-
-                // HttpClient 생성
-                using (HttpClient httpClient = new HttpClient())
-                {
-                    // 서버에 GET 요청 보내고 응답 받기 (비동기로 처리)
-                    HttpResponseMessage response = await httpClient.GetAsync(url);
-
-                    // 응답 확인
-                    if (response.IsSuccessStatusCode)
-                    {
-                        Console.WriteLine($"서버 응답 성공 - {DateTime.Now}");
-                    }
-                    else
-                    {
-                        Console.WriteLine($"서버 응답 실패 - {DateTime.Now}");
-                    }
-                }
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(apiOrderListUrl);
+                string responseFromServer = string.Empty;
+                request.Method = "GET";
+                request.ContentType = "application/json";
+                //request.PreAuthenticate = true;
+                request.Headers.Add("Authorization", "Bearer " + Form1._token);
+                using (WebResponse response = await request.GetResponseAsync())
+                using (Stream dataStream = response.GetResponseStream())
+                using (StreamReader reader = new StreamReader(dataStream))
+                    responseFromServer = await reader.ReadToEndAsync();
+                JObject jobect = JObject.Parse(responseFromServer);
+                JToken jtoken = jobect["stores"];
+                Console.WriteLine($"서버 응답 성공 - {DateTime.Now}");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"오류 발생: {ex.Message}");
+                MessageBox.Show("오류 발생: " + ex.Message, "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            //try
+            //{
+
+            //    // HttpClient 생성
+            //    using (HttpClient httpClient = new HttpClient())
+            //    {
+            //        // 서버에 GET 요청 보내고 응답 받기 (비동기로 처리)
+            //        HttpResponseMessage response = await httpClient.GetAsync(apiOrderListUrl);
+
+            //        // 응답 확인
+            //        if (response.IsSuccessStatusCode)
+            //        {
+            //            Console.WriteLine($"서버 응답 성공 - {DateTime.Now}");
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine($"서버 응답 실패 - {DateTime.Now}");
+            //        }
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine($"오류 발생: {ex.Message}");
+            //}
+
         }
 
 
