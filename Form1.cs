@@ -43,6 +43,7 @@ namespace Unicon1
 
         }
 
+
         public static DialogResult ShowDialog(Form parent, Form dialog, double opacity = 0.65)
         {
             var background = new Form1(parent, opacity);
