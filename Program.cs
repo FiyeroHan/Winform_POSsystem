@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using System.Net.Http;
 
 
 namespace Unicon1
@@ -16,17 +17,10 @@ namespace Unicon1
         [STAThread]
         static void Main()
         {
-            //Thread myThread = new Thread(Func);
-            //myThread.Start(7);
-            //for (int i = 0; i < 3; i++)
-            //{
-            //    Console.WriteLine(i + 1);
-            //    Thread.Sleep(100);
-            //}
+            TimerCallback callback = state => SendHttpRequest();
 
-
-            //Console.WriteLine("메인쓰레드 종료");
-
+            // 1초마다 콜백 메서드 실행
+            System.Threading.Timer timer = new System.Threading.Timer(callback, null, 0, 1000);
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -36,13 +30,33 @@ namespace Unicon1
 
         }
 
-        private static void Func(object obj)
+        static async void SendHttpRequest()
         {
-            int num = (int)obj;
-            for (int i = 0; i < num; i++)
+            try
             {
-                Console.WriteLine(i + 1);
-                Thread.Sleep(100);
+                // HTTP 요청을 보낼 URL 설정
+                string url = "http://hoshi-kirby.xyz/api/v1/order/list";
+
+                // HttpClient 생성
+                using (HttpClient httpClient = new HttpClient())
+                {
+                    // 서버에 GET 요청 보내고 응답 받기 (비동기로 처리)
+                    HttpResponseMessage response = await httpClient.GetAsync(url);
+
+                    // 응답 확인
+                    if (response.IsSuccessStatusCode)
+                    {
+                        Console.WriteLine($"서버 응답 성공 - {DateTime.Now}");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"서버 응답 실패 - {DateTime.Now}");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"오류 발생: {ex.Message}");
             }
         }
 
