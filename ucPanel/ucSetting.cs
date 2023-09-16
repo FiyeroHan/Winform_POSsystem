@@ -110,9 +110,10 @@ namespace Unicon1.ucPanel
                 btn.Name = _placeStatus[i].Name;
                 btn.Dock = DockStyle.Fill;
                 btn.FlatStyle = FlatStyle.Flat;
+                btn.BackColor = i == place ? ((btn.Text == "" || btn.Text == "+") ? Color.Transparent : Color.White) : Color.Transparent;
                 btn.FlatAppearance.BorderSize = 0;
-                btn.FlatAppearance.MouseDownBackColor = Color.Transparent;
-                btn.FlatAppearance.MouseOverBackColor = Color.Transparent;
+                btn.FlatAppearance.MouseDownBackColor = i == place ? ((btn.Text == "" || btn.Text == "+") ? Color.Transparent : Color.White) : Color.Transparent;
+                btn.FlatAppearance.MouseOverBackColor = i == place ? ((btn.Text == "" || btn.Text == "+") ? Color.Transparent : Color.White) : Color.Transparent;
                 btn.Click += AddPlace;
                 this._placeStatus[i] = btn;
                 pPlace.Controls.Add(this._placeStatus[i]);
