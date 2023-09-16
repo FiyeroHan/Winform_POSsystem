@@ -87,7 +87,6 @@ namespace Unicon1.ucPanel
                 btn.Click += ChangePlace;
                 this._placeStatus[i] = btn;
                 pPlace.Controls.Add(this._placeStatus[i]);
-                //for(int j = 1; j < 25; j++)
             }
 
             pTable.Controls.Clear();

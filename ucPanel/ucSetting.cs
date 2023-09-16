@@ -194,5 +194,10 @@ namespace Unicon1.ucPanel
                 pTable.Controls.Add(_tableStatus[place, i]);
             }
         }
+
+        private void btnPlaceSetting_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

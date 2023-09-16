@@ -116,6 +116,12 @@
     <Compile Include="ucPanel\ucPayTypeLT.Designer.cs">
       <DependentUpon>ucPayTypeLT.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucPanel\ucPlaceSetting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucPanel\ucPlaceSetting.Designer.cs">
+      <DependentUpon>ucPlaceSetting.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucPanel\ucSetting.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -193,6 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucPanel\ucPayTypeLT.resx">
       <DependentUpon>ucPayTypeLT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucPanel\ucPlaceSetting.resx">
+      <DependentUpon>ucPlaceSetting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucPanel\ucSetting.resx">
       <DependentUpon>ucSetting.cs</DependentUpon>

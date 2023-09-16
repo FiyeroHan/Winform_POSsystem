@@ -73,6 +73,7 @@ namespace Unicon1
                 for (int j = 0; j < 100; j++) _tableMenuList[i, j] = new List<ucMenuStatus>();
             }
             ucTable = new ucPanel.ucTable();
+            UcLogin_LoginSuccess(sender, _token);
         }
 
         private void UcLogin_LoginSuccess(object sender, JToken token)

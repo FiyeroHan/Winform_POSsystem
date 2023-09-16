@@ -34,7 +34,7 @@
             this.pPlace = new System.Windows.Forms.TableLayoutPanel();
             this.btnendSetting = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.btnChangeName = new System.Windows.Forms.Button();
+            this.btnPlaceSetting = new System.Windows.Forms.Button();
             this.pTable = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -86,7 +86,7 @@
             this.tableLayoutPanel3.Controls.Add(this.pPlace, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.btnendSetting, 3, 0);
             this.tableLayoutPanel3.Controls.Add(this.btnDelete, 2, 0);
-            this.tableLayoutPanel3.Controls.Add(this.btnChangeName, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.btnPlaceSetting, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
@@ -150,17 +150,18 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // btnChangeName
+            // btnPlaceSetting
             // 
-            this.btnChangeName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnChangeName.Font = new System.Drawing.Font("굴림", 9F);
-            this.btnChangeName.Location = new System.Drawing.Point(703, 0);
-            this.btnChangeName.Margin = new System.Windows.Forms.Padding(0);
-            this.btnChangeName.Name = "btnChangeName";
-            this.btnChangeName.Size = new System.Drawing.Size(65, 32);
-            this.btnChangeName.TabIndex = 3;
-            this.btnChangeName.Text = "이름변경";
-            this.btnChangeName.UseVisualStyleBackColor = true;
+            this.btnPlaceSetting.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnPlaceSetting.Font = new System.Drawing.Font("굴림", 9F);
+            this.btnPlaceSetting.Location = new System.Drawing.Point(703, 0);
+            this.btnPlaceSetting.Margin = new System.Windows.Forms.Padding(0);
+            this.btnPlaceSetting.Name = "btnPlaceSetting";
+            this.btnPlaceSetting.Size = new System.Drawing.Size(65, 32);
+            this.btnPlaceSetting.TabIndex = 3;
+            this.btnPlaceSetting.Text = "장소설정";
+            this.btnPlaceSetting.UseVisualStyleBackColor = true;
+            this.btnPlaceSetting.Click += new System.EventHandler(this.btnPlaceSetting_Click);
             // 
             // pTable
             // 
@@ -207,6 +208,6 @@
         private System.Windows.Forms.TableLayoutPanel pTable;
         private System.Windows.Forms.Button btnendSetting;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnChangeName;
+        private System.Windows.Forms.Button btnPlaceSetting;
     }
 }
