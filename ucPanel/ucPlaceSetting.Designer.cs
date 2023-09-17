@@ -173,6 +173,7 @@
             // 
             // fpPlace
             // 
+            this.fpPlace.AutoScroll = true;
             this.fpPlace.Location = new System.Drawing.Point(236, 0);
             this.fpPlace.Margin = new System.Windows.Forms.Padding(0);
             this.fpPlace.Name = "fpPlace";

@@ -27,7 +27,6 @@ namespace Unicon1.ucPanel
 
         private void UcPayment_Load(object sender, EventArgs e)
         {
-            
         }
 
         private void btnNum1_Click(object sender, EventArgs e)
@@ -82,8 +81,8 @@ namespace Unicon1.ucPanel
 
         private void btnEnter_Click(object sender, EventArgs e)
         {
-            inputprice(sender, int.Parse(tboxPrice.Text));
-            payed_price += int.Parse(tboxPrice.Text);
+            inputprice(sender, int.Parse(tboxPrice.Text == "" ? "0" : tboxPrice.Text));
+            payed_price += int.Parse(tboxPrice.Text == "" ? "0" : tboxPrice.Text);
             tboxPrice.Text = "";
             
         }

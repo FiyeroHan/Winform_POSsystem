@@ -30,6 +30,7 @@ namespace Unicon1
     public delegate void changePlace(object sender, Button[,] _tableStatus, Button[] _placeStatus, int place);
     public delegate void placeSetting(object sender, Button[,] tableStatus, Button[] placeStatus, int place);
     public delegate void endPlaceSetting(object sender, Button[,] tableStatus, Button[] placeStatus, List<ucMenuStatus>[,] tableMenuList, int[,] tablePayedPrice);
+    public delegate void deletePlace(object sender, ucPlaceStatus ucPlaceStatus);
     
 
     struct menu_info

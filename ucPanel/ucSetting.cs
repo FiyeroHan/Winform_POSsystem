@@ -41,14 +41,14 @@ namespace Unicon1.ucPanel
             for(int i = 1; i < 14; i++)
             {
                 Button btn = new Button();
-                btn.Text = i == 1 ? "+" : "";
+                btn.Text = i == 1 ? "btnPlace1" : i == 2 ? "+" : "";
                 btn.Name = "btnPlace" + i.ToString();
                 btn.Dock = DockStyle.Fill;
                 btn.FlatStyle = FlatStyle.Flat;
                 btn.FlatAppearance.BorderSize = 0;
-                btn.BackColor = Color.Transparent;
-                btn.FlatAppearance.MouseDownBackColor = Color.Transparent;
-                btn.FlatAppearance.MouseOverBackColor = Color.Transparent;
+                btn.BackColor = i == 1 ? Color.White : Color.Transparent;
+                btn.FlatAppearance.MouseDownBackColor = i == 1 ? Color.White : Color.Transparent;
+                btn.FlatAppearance.MouseOverBackColor = i == 1 ? Color.White : Color.Transparent;
                 btn.Click += AddPlace;
                 _placeStatus[i] = btn;
                 pPlace.Controls.Add(btn);

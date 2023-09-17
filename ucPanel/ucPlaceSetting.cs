@@ -33,6 +33,23 @@ namespace Unicon1.ucPanel
                 if (btn.Text == "+" || btn.Text == "") continue;
                 ucPlaceStatus ucPlaceStatus = new ucPlaceStatus(btn.Text, btn.Name);
                 fpPlace.Controls.Add(ucPlaceStatus);
+                ucPlaceStatus.deletePlace += UcPlaceStatus_deletePlace;
+            }
+        }
+
+        private void UcPlaceStatus_deletePlace(object sender, ucPlaceStatus ucPlaceStatus)
+        {
+            if(fpPlace.Controls.Count > 1)
+            {
+                foreach(ucPlaceStatus ucps in fpPlace.Controls)
+                {
+                    if (ucps == ucPlaceStatus)
+                    {
+                        ucps.Dispose();
+                        break;
+                    }
+                    
+                }
             }
         }
 

@@ -22,10 +22,10 @@ namespace Unicon1
         static void Main()
         {
 
-            TimerCallback callback = state => SendHttpRequest();
+            //TimerCallback callback = state => SendHttpRequest();
 
             // 1초마다 콜백 메서드 실행
-            System.Threading.Timer timer = new System.Threading.Timer(callback, null, 0, 1000);
+            //System.Threading.Timer timer = new System.Threading.Timer(callback, null, 0, 1000);
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

@@ -12,6 +12,8 @@ namespace Unicon1.ucPanel
 {
     public partial class ucPlaceStatus : UserControl
     {
+        public event deletePlace deletePlace;
+
         public string placeName = string.Empty;
         public string btnName = string.Empty;
 
@@ -35,7 +37,7 @@ namespace Unicon1.ucPanel
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            deletePlace(sender, this);
         }
     }
 }
