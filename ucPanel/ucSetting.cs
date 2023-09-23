@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,10 +23,25 @@ namespace Unicon1.ucPanel
         int _madeCount = 1;
         int place = 1;
 
+        [DllImport("gdi32.dll")]
+        private static extern IntPtr CreateRoundRectRgn(int x1, int y1, int x2, int y2, int cx, int cy);
+
+        [DllImport("user32.dll")]
+        private static extern int SetWindowRgn(IntPtr hWnd, IntPtr hRgn, bool bRedraw);
+
         public ucSetting()
         {
             InitializeComponent();
-            for(int i = 1; i < 14; i++)
+
+            Label lbl = new Label();
+            lbl.AutoSize = false;
+            lbl.Height = 2;
+            lbl.Dock = DockStyle.Bottom;
+            lbl.Name = "lbl1";
+            lbl.BackColor = Color.Orange;
+            panel1.Controls.Add(lbl);
+
+            for (int i = 1; i < 14; i++)
             {
                 for(int j = 1; j < 25; j++)
                 {
@@ -33,7 +49,9 @@ namespace Unicon1.ucPanel
                     btn.Text = "+";
                     btn.Name = "btnEmpty" + j.ToString();
                     btn.Dock = DockStyle.Fill;
-                    btn.BackColor = Color.Transparent;
+                    btn.BackColor = Color.Gainsboro;
+                    btn.FlatStyle = FlatStyle.Flat;
+                    btn.FlatAppearance.BorderSize = 0;
                     btn.Click += AddTable;
                     _tableStatus[i,j] = btn;
                 }
@@ -41,7 +59,7 @@ namespace Unicon1.ucPanel
             for(int i = 1; i < 14; i++)
             {
                 Button btn = new Button();
-                btn.Text = i == 1 ? "btnPlace1" : i == 2 ? "+" : "";
+                btn.Text = i == 1 ? "1" : i == 2 ? "+" : "";
                 btn.Name = "btnPlace" + i.ToString();
                 btn.Dock = DockStyle.Fill;
                 btn.FlatStyle = FlatStyle.Flat;
@@ -62,9 +80,9 @@ namespace Unicon1.ucPanel
             {
                 if(btn.Text == "+")
                 {
-                    btn.Text = btn.Name;
+                    btn.Text = btn.Name.Substring(8);
                     _placeStatus[int.Parse(btn.Name.Substring(8))] = btn;
-                    _placeStatus[int.Parse(btn.Name.Substring(8)) + 1].Text = "+";
+                    if(int.Parse(btn.Name.Substring(8)) < 13) _placeStatus[int.Parse(btn.Name.Substring(8)) + 1].Text = "+";
                 }
                 else
                 {
@@ -83,13 +101,17 @@ namespace Unicon1.ucPanel
                 btn.Text = _madeCount.ToString();
                 btn.Name = "btnTable" + _madeCount++.ToString();
                 btn.Dock = DockStyle.Fill;
-                btn.BackColor = Color.White;
+                btn.FlatStyle = FlatStyle.Flat;
+                btn.FlatAppearance.BorderSize = 0;
+                btn.BackColor = Color.DarkGray;
                 btn.Click += DeleteTable;
                 _tableStatus[place, tableIndex] = btn;
                 pTable.Controls.Clear();
                 for(int i = 1; i < 25; i++)
                 {
                     pTable.Controls.Add(_tableStatus[place, i]);
+                    IntPtr ip = CreateRoundRectRgn(0, 0, btn.Width, btn.Height, 15, 15);
+                    SetWindowRgn(btn.Handle, ip, true);
                 }
             }
         }
@@ -111,10 +133,12 @@ namespace Unicon1.ucPanel
                 btn.Name = _placeStatus[i].Name;
                 btn.Dock = DockStyle.Fill;
                 btn.FlatStyle = FlatStyle.Flat;
-                btn.BackColor = i == place ? ((btn.Text == "" || btn.Text == "+") ? Color.Transparent : Color.White) : Color.Transparent;
+                btn.BackColor = Color.Transparent;
+                btn.ForeColor = i == place ? Color.Orange : Color.DarkGray;
+                btn.Font = new Font("맑은 고딕", 11);
                 btn.FlatAppearance.BorderSize = 0;
-                btn.FlatAppearance.MouseDownBackColor = i == place ? ((btn.Text == "" || btn.Text == "+") ? Color.Transparent : Color.White) : Color.Transparent;
-                btn.FlatAppearance.MouseOverBackColor = i == place ? ((btn.Text == "" || btn.Text == "+") ? Color.Transparent : Color.White) : Color.Transparent;
+                btn.FlatAppearance.MouseDownBackColor = Color.Transparent;
+                btn.FlatAppearance.MouseOverBackColor = Color.Transparent;
                 btn.Click += AddPlace;
                 this._placeStatus[i] = btn;
                 pPlace.Controls.Add(this._placeStatus[i]);
@@ -129,11 +153,12 @@ namespace Unicon1.ucPanel
                     Button btn = new Button();
                     if (_tableStatus[i, j].Name.Substring(0, 8) == "btnEmpty")
                     {
-                    
                         btn.Text = "+";
                         btn.Name = "btnEmpty" + j.ToString();
                         btn.Dock = DockStyle.Fill;
-                        btn.BackColor = Color.Transparent;
+                        btn.FlatStyle = FlatStyle.Flat;
+                        btn.FlatAppearance.BorderSize = 0;
+                        btn.BackColor = Color.Gainsboro;
                         btn.Click += AddTable;
                         this._tableStatus[i, j] = btn;
                     }
@@ -142,11 +167,19 @@ namespace Unicon1.ucPanel
                         btn.Text = _tableStatus[i, j].Text;
                         btn.Name = _tableStatus[i, j].Name;
                         btn.Dock = DockStyle.Fill;
-                        btn.BackColor = Color.White;
+                        btn.BackColor = Color.DarkGray;
+                        btn.FlatStyle = FlatStyle.Flat;
+                        btn.FlatAppearance.BorderSize = 0;
                         btn.Click += DeleteTable;
                         this._tableStatus[i, j] = btn;
                     }
-                    if(i == place) pTable.Controls.Add(this._tableStatus[i, j]);
+                    if (i == place)
+                    {
+                        pTable.Controls.Add(this._tableStatus[i, j]);
+                        IntPtr ip = CreateRoundRectRgn(0, 0, btn.Width, btn.Height, 15, 15);
+                        SetWindowRgn(btn.Handle, ip, true);
+                    }
+                    
                 }
             }
         }
@@ -186,8 +219,11 @@ namespace Unicon1.ucPanel
                     btn.Text = "+";
                     btn.Name = "btnEmpty" + i.ToString();
                     btn.Dock = DockStyle.Fill;
-                    btn.BackColor = Color.Transparent;
+                    btn.BackColor = Color.Gainsboro;
+                    btn.FlatStyle = FlatStyle.Flat;
+                    btn.FlatAppearance.BorderSize = 0;
                     btn.Click += AddTable;
+                    
                     _tableStatus[place, i] = btn;
                 }
             }
@@ -195,6 +231,8 @@ namespace Unicon1.ucPanel
             for(int i = 1; i < 25; i++)
             {
                 pTable.Controls.Add(_tableStatus[place, i]);
+                IntPtr ip = CreateRoundRectRgn(0, 0, _tableStatus[place, i].Width, _tableStatus[place, i].Height, 15, 15);
+                SetWindowRgn(_tableStatus[place, i].Handle, ip, true);
             }
         }
 

@@ -30,18 +30,20 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.pPlace = new System.Windows.Forms.TableLayoutPanel();
-            this.btnSetting = new System.Windows.Forms.Button();
             this.pTable = new System.Windows.Forms.TableLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnSetting = new FontAwesome.Sharp.IconButton();
+            this.pPlace = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.555555F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 88.88889F));
@@ -62,8 +64,8 @@
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.pTable, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(54, 24);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
@@ -73,6 +75,37 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 91.62437F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(868, 394);
             this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // pTable
+            // 
+            this.pTable.ColumnCount = 6;
+            this.pTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.pTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.pTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.pTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.pTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.pTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.pTable.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pTable.Location = new System.Drawing.Point(0, 32);
+            this.pTable.Margin = new System.Windows.Forms.Padding(0);
+            this.pTable.Name = "pTable";
+            this.pTable.RowCount = 4;
+            this.pTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.pTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.pTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.pTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.pTable.Size = new System.Drawing.Size(868, 362);
+            this.pTable.TabIndex = 1;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.tableLayoutPanel3);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(868, 32);
+            this.panel1.TabIndex = 2;
             // 
             // tableLayoutPanel3
             // 
@@ -91,6 +124,23 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(868, 32);
             this.tableLayoutPanel3.TabIndex = 2;
+            // 
+            // btnSetting
+            // 
+            this.btnSetting.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSetting.FlatAppearance.BorderSize = 0;
+            this.btnSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSetting.IconChar = FontAwesome.Sharp.IconChar.Table;
+            this.btnSetting.IconColor = System.Drawing.Color.DarkGray;
+            this.btnSetting.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSetting.IconSize = 30;
+            this.btnSetting.Location = new System.Drawing.Point(818, 0);
+            this.btnSetting.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSetting.Name = "btnSetting";
+            this.btnSetting.Size = new System.Drawing.Size(50, 32);
+            this.btnSetting.TabIndex = 0;
+            this.btnSetting.UseVisualStyleBackColor = true;
+            this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
             // 
             // pPlace
             // 
@@ -122,62 +172,32 @@
             this.pPlace.Size = new System.Drawing.Size(703, 32);
             this.pPlace.TabIndex = 1;
             // 
-            // btnSetting
-            // 
-            this.btnSetting.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSetting.Location = new System.Drawing.Point(818, 0);
-            this.btnSetting.Margin = new System.Windows.Forms.Padding(0);
-            this.btnSetting.Name = "btnSetting";
-            this.btnSetting.Size = new System.Drawing.Size(50, 32);
-            this.btnSetting.TabIndex = 1;
-            this.btnSetting.Text = "설정";
-            this.btnSetting.UseVisualStyleBackColor = true;
-            this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
-            // 
-            // pTable
-            // 
-            this.pTable.ColumnCount = 6;
-            this.pTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.pTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.pTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.pTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.pTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.pTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.pTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pTable.Location = new System.Drawing.Point(0, 32);
-            this.pTable.Margin = new System.Windows.Forms.Padding(0);
-            this.pTable.Name = "pTable";
-            this.pTable.RowCount = 4;
-            this.pTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.pTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.pTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.pTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.pTable.Size = new System.Drawing.Size(868, 362);
-            this.pTable.TabIndex = 1;
-            // 
             // ucTable
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ucTable";
             this.Size = new System.Drawing.Size(977, 444);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
+
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.TableLayoutPanel pTable;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel pPlace;
-        private System.Windows.Forms.Button btnSetting;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TableLayoutPanel pTable;
+        private FontAwesome.Sharp.IconButton btnSetting;
     }
 }

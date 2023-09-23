@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,16 +18,29 @@ namespace Unicon1.ucPanel
         public int total_price = 0;
         public int payed_price = 0;
 
+        [DllImport("gdi32.dll")]
+        private static extern IntPtr CreateRoundRectRgn(int x1, int y1, int x2, int y2, int cx, int cy);
+
+        [DllImport("user32.dll")]
+        private static extern int SetWindowRgn(IntPtr hWnd, IntPtr hRgn, bool bRedraw);
+
         public ucPayment(int total_price, int payed_price)
         {
             InitializeComponent();
             this.total_price = total_price;
             this.payed_price = payed_price;
             lblPrice.Text = (this.total_price-this.payed_price).ToString();
+            for(int i = 0; i < pPayment.Controls.Count; i++)
+            {
+                IntPtr ip = CreateRoundRectRgn(0, 0, pPayment.Controls[i].Width, pPayment.Controls[i].Height, 30, 30);
+                SetWindowRgn(pPayment.Controls[i].Handle, ip, true);
+            }
         }
 
         private void UcPayment_Load(object sender, EventArgs e)
         {
+            Point P = new Point(lblPrice.Location.X - lblPrice.Text.Length*7, lblPrice.Location.Y);
+            lblPrice.Location = P;
         }
 
         private void btnNum1_Click(object sender, EventArgs e)

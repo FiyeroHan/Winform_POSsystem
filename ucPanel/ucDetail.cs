@@ -109,7 +109,7 @@ namespace Unicon1.ucPanel
             {
                 MessageBox.Show("오류 발생: " + ex.Message, "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            Console.WriteLine(_storecode[0]);
+            //Console.WriteLine(_storecode[0]);
             
         }
 
@@ -217,7 +217,7 @@ namespace Unicon1.ucPanel
                     pMenuList.Controls.Add(_ucSandwitch);
                     break;
                 case (MenuList.Pasta):
-                    _ucPasta = new ucPasta(_storecode[0]);
+                    //_ucPasta = new ucPasta(_storecode[0]);
                     _ucPasta.addlist += Add_status;
                     pMenuList.Controls.Clear();
                     pMenuList.Controls.Add(_ucPasta);

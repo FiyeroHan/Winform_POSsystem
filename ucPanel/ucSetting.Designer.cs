@@ -30,25 +30,28 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.pTable = new System.Windows.Forms.TableLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.pPlace = new System.Windows.Forms.TableLayoutPanel();
-            this.btnendSetting = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnPlaceSetting = new System.Windows.Forms.Button();
-            this.pTable = new System.Windows.Forms.TableLayoutPanel();
+            this.btnDelete = new FontAwesome.Sharp.IconButton();
+            this.btnPlaceSetting = new FontAwesome.Sharp.IconButton();
+            this.btnendSetting = new FontAwesome.Sharp.IconButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.555555F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 88.88889F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.555555F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.btnendSetting, 2, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
@@ -64,8 +67,8 @@
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.pTable, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(54, 24);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
@@ -76,6 +79,38 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(868, 394);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
+            // pTable
+            // 
+            this.pTable.BackColor = System.Drawing.Color.Transparent;
+            this.pTable.ColumnCount = 6;
+            this.pTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.pTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.pTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.pTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.pTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.pTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.pTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pTable.Location = new System.Drawing.Point(0, 32);
+            this.pTable.Margin = new System.Windows.Forms.Padding(0);
+            this.pTable.Name = "pTable";
+            this.pTable.RowCount = 4;
+            this.pTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.pTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.pTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.pTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.pTable.Size = new System.Drawing.Size(868, 362);
+            this.pTable.TabIndex = 1;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.tableLayoutPanel3);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(868, 32);
+            this.panel1.TabIndex = 2;
+            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 4;
@@ -84,9 +119,8 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel3.Controls.Add(this.pPlace, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.btnendSetting, 3, 0);
-            this.tableLayoutPanel3.Controls.Add(this.btnDelete, 2, 0);
-            this.tableLayoutPanel3.Controls.Add(this.btnPlaceSetting, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.btnDelete, 3, 0);
+            this.tableLayoutPanel3.Controls.Add(this.btnPlaceSetting, 2, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
@@ -126,74 +160,71 @@
             this.pPlace.Size = new System.Drawing.Size(703, 32);
             this.pPlace.TabIndex = 1;
             // 
-            // btnendSetting
-            // 
-            this.btnendSetting.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnendSetting.Location = new System.Drawing.Point(818, 0);
-            this.btnendSetting.Margin = new System.Windows.Forms.Padding(0);
-            this.btnendSetting.Name = "btnendSetting";
-            this.btnendSetting.Size = new System.Drawing.Size(50, 32);
-            this.btnendSetting.TabIndex = 1;
-            this.btnendSetting.Text = "X";
-            this.btnendSetting.UseVisualStyleBackColor = true;
-            this.btnendSetting.Click += new System.EventHandler(this.btnendSetting_Click);
-            // 
             // btnDelete
             // 
+            this.btnDelete.BackColor = System.Drawing.Color.Transparent;
             this.btnDelete.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnDelete.Location = new System.Drawing.Point(768, 0);
+            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.IconChar = FontAwesome.Sharp.IconChar.Trash;
+            this.btnDelete.IconColor = System.Drawing.Color.DarkGray;
+            this.btnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnDelete.IconSize = 35;
+            this.btnDelete.Location = new System.Drawing.Point(818, 0);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(0);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(50, 32);
-            this.btnDelete.TabIndex = 2;
-            this.btnDelete.Text = "삭제";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.TabIndex = 4;
+            this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnPlaceSetting
             // 
+            this.btnPlaceSetting.BackColor = System.Drawing.Color.Transparent;
             this.btnPlaceSetting.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnPlaceSetting.Font = new System.Drawing.Font("굴림", 9F);
-            this.btnPlaceSetting.Location = new System.Drawing.Point(703, 0);
+            this.btnPlaceSetting.FlatAppearance.BorderSize = 0;
+            this.btnPlaceSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPlaceSetting.IconChar = FontAwesome.Sharp.IconChar.Gear;
+            this.btnPlaceSetting.IconColor = System.Drawing.Color.DarkGray;
+            this.btnPlaceSetting.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPlaceSetting.IconSize = 35;
+            this.btnPlaceSetting.Location = new System.Drawing.Point(768, 0);
             this.btnPlaceSetting.Margin = new System.Windows.Forms.Padding(0);
             this.btnPlaceSetting.Name = "btnPlaceSetting";
-            this.btnPlaceSetting.Size = new System.Drawing.Size(65, 32);
-            this.btnPlaceSetting.TabIndex = 3;
-            this.btnPlaceSetting.Text = "장소설정";
-            this.btnPlaceSetting.UseVisualStyleBackColor = true;
+            this.btnPlaceSetting.Size = new System.Drawing.Size(50, 32);
+            this.btnPlaceSetting.TabIndex = 5;
+            this.btnPlaceSetting.UseVisualStyleBackColor = false;
             this.btnPlaceSetting.Click += new System.EventHandler(this.btnPlaceSetting_Click);
             // 
-            // pTable
+            // btnendSetting
             // 
-            this.pTable.BackColor = System.Drawing.Color.Transparent;
-            this.pTable.ColumnCount = 6;
-            this.pTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.pTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.pTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.pTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.pTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.pTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.pTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pTable.Location = new System.Drawing.Point(0, 32);
-            this.pTable.Margin = new System.Windows.Forms.Padding(0);
-            this.pTable.Name = "pTable";
-            this.pTable.RowCount = 4;
-            this.pTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.pTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.pTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.pTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.pTable.Size = new System.Drawing.Size(868, 362);
-            this.pTable.TabIndex = 1;
+            this.btnendSetting.BackColor = System.Drawing.Color.Transparent;
+            this.btnendSetting.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnendSetting.FlatAppearance.BorderSize = 0;
+            this.btnendSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnendSetting.IconChar = FontAwesome.Sharp.IconChar.LeftLong;
+            this.btnendSetting.IconColor = System.Drawing.Color.DarkGray;
+            this.btnendSetting.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnendSetting.IconSize = 30;
+            this.btnendSetting.Location = new System.Drawing.Point(922, 0);
+            this.btnendSetting.Margin = new System.Windows.Forms.Padding(0);
+            this.btnendSetting.Name = "btnendSetting";
+            this.btnendSetting.Size = new System.Drawing.Size(55, 24);
+            this.btnendSetting.TabIndex = 4;
+            this.btnendSetting.UseVisualStyleBackColor = false;
+            this.btnendSetting.Click += new System.EventHandler(this.btnendSetting_Click);
             // 
             // ucSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "ucSetting";
             this.Size = new System.Drawing.Size(977, 444);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -206,8 +237,9 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel pPlace;
         private System.Windows.Forms.TableLayoutPanel pTable;
-        private System.Windows.Forms.Button btnendSetting;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnPlaceSetting;
+        private System.Windows.Forms.Panel panel1;
+        private FontAwesome.Sharp.IconButton btnendSetting;
+        private FontAwesome.Sharp.IconButton btnDelete;
+        private FontAwesome.Sharp.IconButton btnPlaceSetting;
     }
 }
