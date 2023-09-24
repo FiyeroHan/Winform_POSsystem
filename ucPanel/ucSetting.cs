@@ -193,7 +193,7 @@ namespace Unicon1.ucPanel
                 {
                     if (_tableStatus[place, i] == btn)
                     {
-                        _tableStatus[place, i].BackColor = _tableStatus[place, i].BackColor == Color.Black ? Color.White : Color.Black;
+                        _tableStatus[place, i].BackColor = _tableStatus[place, i].BackColor == Color.Black ? Color.DarkGray : Color.Black;
                     }
                 }
                 pTable.Controls.Clear();

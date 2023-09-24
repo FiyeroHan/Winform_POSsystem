@@ -217,7 +217,7 @@ namespace Unicon1.ucPanel
                     pMenuList.Controls.Add(_ucSandwitch);
                     break;
                 case (MenuList.Pasta):
-                    //_ucPasta = new ucPasta(_storecode[0]);
+                    _ucPasta = new ucPasta("");
                     _ucPasta.addlist += Add_status;
                     pMenuList.Controls.Clear();
                     pMenuList.Controls.Add(_ucPasta);
