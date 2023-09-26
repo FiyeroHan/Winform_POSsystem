@@ -15,6 +15,14 @@ namespace Unicon1.ucPanel
         public ucDucth2()
         {
             InitializeComponent();
+            Label lbl = new Label();
+            lbl.AutoSize = false;
+            lbl.Height = 2;
+            lbl.Dock = DockStyle.Bottom;
+            lbl.Name = "lbl1";
+            lbl.BackColor = Color.Orange;
+            panel1.Controls.Add(lbl);
         }
+
     }
 }

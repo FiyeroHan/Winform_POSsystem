@@ -7,17 +7,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace Unicon1.ucPanel
 {
     public partial class ucSandwitch : UserControl
     {
+        [DllImport("gdi32.dll")]
+        private static extern IntPtr CreateRoundRectRgn(int x1, int y1, int x2, int y2, int cx, int cy);
+
+        [DllImport("user32.dll")]
+        private static extern int SetWindowRgn(IntPtr hWnd, IntPtr hRgn, bool bRedraw);
+
         public event menulist addlist;
 
         ucMenuStatus ucMenuStatus = new ucMenuStatus();
         public ucSandwitch()
         {
             InitializeComponent();
+            for(int i = 0; i < tableLayoutPanel4.Controls.Count; i++)
+            {
+                IntPtr ip = CreateRoundRectRgn(0, 0, tableLayoutPanel4.Controls[i].Width, tableLayoutPanel4.Controls[i].Height, 15, 15);
+                SetWindowRgn(tableLayoutPanel4.Controls[i].Handle, ip, true);
+            }
         }
 
         private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e)

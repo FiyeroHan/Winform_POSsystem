@@ -93,7 +93,7 @@
             this.btnNum1.FlatAppearance.BorderSize = 0;
             this.btnNum1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNum1.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnNum1.Location = new System.Drawing.Point(36, 168);
+            this.btnNum1.Location = new System.Drawing.Point(32, 158);
             this.btnNum1.Margin = new System.Windows.Forms.Padding(2);
             this.btnNum1.Name = "btnNum1";
             this.btnNum1.Size = new System.Drawing.Size(30, 30);
@@ -108,7 +108,7 @@
             this.btnNum2.FlatAppearance.BorderSize = 0;
             this.btnNum2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNum2.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnNum2.Location = new System.Drawing.Point(79, 168);
+            this.btnNum2.Location = new System.Drawing.Point(75, 158);
             this.btnNum2.Margin = new System.Windows.Forms.Padding(2);
             this.btnNum2.Name = "btnNum2";
             this.btnNum2.Size = new System.Drawing.Size(30, 30);
@@ -123,7 +123,7 @@
             this.btnNum3.FlatAppearance.BorderSize = 0;
             this.btnNum3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNum3.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnNum3.Location = new System.Drawing.Point(121, 168);
+            this.btnNum3.Location = new System.Drawing.Point(117, 158);
             this.btnNum3.Margin = new System.Windows.Forms.Padding(2);
             this.btnNum3.Name = "btnNum3";
             this.btnNum3.Size = new System.Drawing.Size(30, 30);
@@ -138,7 +138,7 @@
             this.btnNum4.FlatAppearance.BorderSize = 0;
             this.btnNum4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNum4.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnNum4.Location = new System.Drawing.Point(36, 208);
+            this.btnNum4.Location = new System.Drawing.Point(32, 198);
             this.btnNum4.Margin = new System.Windows.Forms.Padding(2);
             this.btnNum4.Name = "btnNum4";
             this.btnNum4.Size = new System.Drawing.Size(30, 30);
@@ -153,7 +153,7 @@
             this.btnNum5.FlatAppearance.BorderSize = 0;
             this.btnNum5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNum5.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnNum5.Location = new System.Drawing.Point(79, 208);
+            this.btnNum5.Location = new System.Drawing.Point(75, 198);
             this.btnNum5.Margin = new System.Windows.Forms.Padding(2);
             this.btnNum5.Name = "btnNum5";
             this.btnNum5.Size = new System.Drawing.Size(30, 30);
@@ -168,7 +168,7 @@
             this.btnNum6.FlatAppearance.BorderSize = 0;
             this.btnNum6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNum6.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnNum6.Location = new System.Drawing.Point(121, 208);
+            this.btnNum6.Location = new System.Drawing.Point(117, 198);
             this.btnNum6.Margin = new System.Windows.Forms.Padding(2);
             this.btnNum6.Name = "btnNum6";
             this.btnNum6.Size = new System.Drawing.Size(30, 30);
@@ -183,7 +183,7 @@
             this.btnNum7.FlatAppearance.BorderSize = 0;
             this.btnNum7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNum7.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnNum7.Location = new System.Drawing.Point(36, 250);
+            this.btnNum7.Location = new System.Drawing.Point(32, 240);
             this.btnNum7.Margin = new System.Windows.Forms.Padding(2);
             this.btnNum7.Name = "btnNum7";
             this.btnNum7.Size = new System.Drawing.Size(30, 30);
@@ -198,7 +198,7 @@
             this.btnNum8.FlatAppearance.BorderSize = 0;
             this.btnNum8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNum8.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnNum8.Location = new System.Drawing.Point(79, 250);
+            this.btnNum8.Location = new System.Drawing.Point(75, 240);
             this.btnNum8.Margin = new System.Windows.Forms.Padding(2);
             this.btnNum8.Name = "btnNum8";
             this.btnNum8.Size = new System.Drawing.Size(30, 30);
@@ -213,7 +213,7 @@
             this.btnNum9.FlatAppearance.BorderSize = 0;
             this.btnNum9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNum9.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnNum9.Location = new System.Drawing.Point(121, 250);
+            this.btnNum9.Location = new System.Drawing.Point(117, 240);
             this.btnNum9.Margin = new System.Windows.Forms.Padding(2);
             this.btnNum9.Name = "btnNum9";
             this.btnNum9.Size = new System.Drawing.Size(30, 30);
@@ -228,7 +228,7 @@
             this.btnNum0.FlatAppearance.BorderSize = 0;
             this.btnNum0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNum0.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnNum0.Location = new System.Drawing.Point(79, 290);
+            this.btnNum0.Location = new System.Drawing.Point(75, 280);
             this.btnNum0.Margin = new System.Windows.Forms.Padding(2);
             this.btnNum0.Name = "btnNum0";
             this.btnNum0.Size = new System.Drawing.Size(30, 30);
@@ -239,11 +239,12 @@
             // 
             // btnEnter
             // 
-            this.btnEnter.BackColor = System.Drawing.SystemColors.Control;
+            this.btnEnter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(106)))), ((int)(((byte)(0)))));
             this.btnEnter.FlatAppearance.BorderSize = 0;
             this.btnEnter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEnter.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnEnter.Location = new System.Drawing.Point(165, 168);
+            this.btnEnter.ForeColor = System.Drawing.Color.White;
+            this.btnEnter.Location = new System.Drawing.Point(161, 158);
             this.btnEnter.Margin = new System.Windows.Forms.Padding(2);
             this.btnEnter.Name = "btnEnter";
             this.btnEnter.Size = new System.Drawing.Size(50, 152);
@@ -267,9 +268,9 @@
             this.pPayment.Controls.Add(this.btnNum3);
             this.pPayment.Controls.Add(this.btnNum5);
             this.pPayment.Controls.Add(this.btnNum4);
-            this.pPayment.Location = new System.Drawing.Point(166, 19);
+            this.pPayment.Location = new System.Drawing.Point(168, 10);
             this.pPayment.Name = "pPayment";
-            this.pPayment.Size = new System.Drawing.Size(249, 333);
+            this.pPayment.Size = new System.Drawing.Size(242, 319);
             this.pPayment.TabIndex = 15;
             // 
             // panel2
@@ -281,7 +282,7 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.tboxPrice);
-            this.panel2.Location = new System.Drawing.Point(24, 19);
+            this.panel2.Location = new System.Drawing.Point(20, 9);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(200, 100);
             this.panel2.TabIndex = 15;
@@ -329,7 +330,7 @@
             this.Controls.Add(this.pPayment);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ucPayment";
-            this.Size = new System.Drawing.Size(582, 352);
+            this.Size = new System.Drawing.Size(586, 329);
             this.Load += new System.EventHandler(this.UcPayment_Load);
             this.pPayment.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

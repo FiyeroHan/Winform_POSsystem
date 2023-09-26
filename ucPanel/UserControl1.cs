@@ -21,16 +21,22 @@ namespace Unicon1.ucPanel
 
         private void btnBrunch_Click(object sender, EventArgs e)
         {
+            foreach (Button btn in tableLayoutPanel3.Controls) btn.ForeColor = Color.Gray;
+            btnBrunch.ForeColor = Color.Orange;
             FloatMenu("ucSandwitch", (MenuList)0);
         }
 
         private void btnPasta_Click(object sender, EventArgs e)
         {
+            foreach (Button btn in tableLayoutPanel3.Controls) btn.ForeColor = Color.Gray;
+            btnPasta.ForeColor = Color.Orange;
             FloatMenu("ucPasta", (MenuList)1);
         }
 
         private void btnSteak_Click(object sender, EventArgs e)
         {
+            foreach (Button btn in tableLayoutPanel3.Controls) btn.ForeColor = Color.Gray;
+            btnSteak.ForeColor = Color.Orange;
             FloatMenu("ucSteak", (MenuList)2);
         }
     }

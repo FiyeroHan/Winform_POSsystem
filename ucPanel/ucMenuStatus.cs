@@ -55,7 +55,7 @@ namespace Unicon1.ucPanel
         public int Price 
         {
             get { return _price; }
-            set { _price = value; lblPrice.Text = value.ToString(); }
+            set { _price = value; lblPrice.Text = value.ToString()+"원"; }
         }
 
         #endregion

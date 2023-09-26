@@ -28,63 +28,69 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnBack = new System.Windows.Forms.Button();
             this.btnDirectInput = new System.Windows.Forms.Button();
             this.btnDutch = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.tableLayoutPanel1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(586, 82);
+            this.panel1.TabIndex = 0;
+            // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45F));
-            this.tableLayoutPanel1.Controls.Add(this.btnBack, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btnDirectInput, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.btnDutch, 2, 1);
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.btnDirectInput, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnDutch, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(582, 85);
-            this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // btnBack
-            // 
-            this.btnBack.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnBack.Location = new System.Drawing.Point(2, 2);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(54, 25);
-            this.btnBack.TabIndex = 0;
-            this.btnBack.Text = "<";
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(586, 82);
+            this.tableLayoutPanel1.TabIndex = 4;
             // 
             // btnDirectInput
             // 
+            this.btnDirectInput.BackColor = System.Drawing.Color.White;
             this.btnDirectInput.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnDirectInput.Location = new System.Drawing.Point(60, 31);
-            this.btnDirectInput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDirectInput.FlatAppearance.BorderSize = 0;
+            this.btnDirectInput.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDirectInput.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnDirectInput.ForeColor = System.Drawing.Color.Orange;
+            this.btnDirectInput.Location = new System.Drawing.Point(0, 0);
+            this.btnDirectInput.Margin = new System.Windows.Forms.Padding(0);
             this.btnDirectInput.Name = "btnDirectInput";
-            this.btnDirectInput.Size = new System.Drawing.Size(257, 52);
+            this.btnDirectInput.Size = new System.Drawing.Size(293, 82);
             this.btnDirectInput.TabIndex = 1;
             this.btnDirectInput.Text = "직접입력";
-            this.btnDirectInput.UseVisualStyleBackColor = true;
+            this.btnDirectInput.UseVisualStyleBackColor = false;
             this.btnDirectInput.Click += new System.EventHandler(this.btnDirectInput_Click);
             // 
             // btnDutch
             // 
             this.btnDutch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnDutch.Location = new System.Drawing.Point(321, 31);
-            this.btnDutch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDutch.FlatAppearance.BorderSize = 0;
+            this.btnDutch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDutch.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnDutch.ForeColor = System.Drawing.Color.DarkGray;
+            this.btnDutch.Location = new System.Drawing.Point(293, 0);
+            this.btnDutch.Margin = new System.Windows.Forms.Padding(0);
             this.btnDutch.Name = "btnDutch";
-            this.btnDutch.Size = new System.Drawing.Size(259, 52);
+            this.btnDutch.Size = new System.Drawing.Size(293, 82);
             this.btnDutch.TabIndex = 2;
             this.btnDutch.Text = "더치페이";
             this.btnDutch.UseVisualStyleBackColor = true;
@@ -94,19 +100,24 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.tableLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ucPaymentLT";
-            this.Size = new System.Drawing.Size(582, 85);
+            this.Size = new System.Drawing.Size(586, 82);
+            this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
+
+
+
         #endregion
 
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnDirectInput;
         private System.Windows.Forms.Button btnDutch;
     }

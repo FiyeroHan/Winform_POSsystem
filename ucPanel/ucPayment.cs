@@ -32,7 +32,7 @@ namespace Unicon1.ucPanel
             lblPrice.Text = (this.total_price-this.payed_price).ToString();
             for(int i = 0; i < pPayment.Controls.Count; i++)
             {
-                IntPtr ip = CreateRoundRectRgn(0, 0, pPayment.Controls[i].Width, pPayment.Controls[i].Height, 30, 30);
+                IntPtr ip = CreateRoundRectRgn(0, 0, pPayment.Controls[i].Width, pPayment.Controls[i].Height, 20, 20);
                 SetWindowRgn(pPayment.Controls[i].Handle, ip, true);
             }
         }

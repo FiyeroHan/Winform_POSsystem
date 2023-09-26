@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 using HtmlAgilityPack;
 using System.Net;
 using System.IO;
@@ -18,6 +19,12 @@ namespace Unicon1.ucPanel
 {
     public partial class ucDetail : UserControl
     {
+        [DllImport("gdi32.dll")]
+        private static extern IntPtr CreateRoundRectRgn(int x1, int y1, int x2, int y2, int cx, int cy);
+
+        [DllImport("user32.dll")]
+        private static extern int SetWindowRgn(IntPtr hWnd, IntPtr hRgn, bool bRedraw);
+
         private readonly HttpClient httpClient = new HttpClient();
         private readonly string apiUserListUrl = "http://hoshi-kirby.xyz/api/v1/user/list";
         private readonly string apiOrderListUrl = "http://hoshi-kirby.xyz/api/v1/order/list";
@@ -29,10 +36,7 @@ namespace Unicon1.ucPanel
         ucPasta _ucPasta;
         ucSteak _ucSteak = new ucSteak();
         ucMenuStatus _ucMenuStatus = new ucMenuStatus();
-        
-        ucPaymentLT _ucPaymentLT = new ucPaymentLT();
         UserControl1 _ucUserControl1 = new UserControl1();
-        ucDucth _ucDutch = new ucDucth();
         ucDucth2 _ucDutch2 = new ucDucth2();
         ucPayType _ucPayType = new ucPayType();
         ucPayTypeLT _ucPayTypeLT = new ucPayTypeLT();
@@ -59,18 +63,22 @@ namespace Unicon1.ucPanel
             this.place = place;
             Console.WriteLine(payed_price.ToString());
             InitializeComponent();
-            
+
             _ucSandwitch.addlist += Add_status;
             _ucSteak.addlist += Add_status;
             _ucUserControl1.FloatMenu += fMenulist;
-            _ucPaymentLT.floatPayment += fPaymentPage;
-            _ucPaymentLT.backToMenu += BackToMenu;
-            _ucPayTypeLT.backToMenu += BackToMenu;
-            _ucDutch.floatdutch += fDutch;
             _form1.AccessToken += foo;
 
             pLT.Controls.Clear();
             pLT.Controls.Add(_ucUserControl1);
+
+            Label lbl = new Label();
+            lbl.AutoSize = false;
+            lbl.Height = 2;
+            lbl.Dock = DockStyle.Bottom;
+            lbl.Name = "lbl1";
+            lbl.BackColor = Color.Orange;
+            pLT.Controls.Add(lbl);
 
             total_price = 0;
 
@@ -83,7 +91,21 @@ namespace Unicon1.ucPanel
 
             lblTotalPrice.Text = total_price.ToString();
 
-            string apiUrl = "http://hoshi-kirby.xyz/api/v1/order/store/list";
+            IntPtr ip = CreateRoundRectRgn(0, 0, btnCardPay.Width, btnCardPay.Height, 15, 15);
+            SetWindowRgn(btnCardPay.Handle, ip, true);
+
+            ip = CreateRoundRectRgn(0, 0, btnCashPay.Width, btnCashPay.Height, 15, 15);
+            SetWindowRgn(btnCashPay.Handle, ip, true);
+
+            ip = CreateRoundRectRgn(0, 0, btnMixedPay.Width, btnMixedPay.Height, 15, 15);
+            SetWindowRgn(btnMixedPay.Handle, ip, true);
+
+            ip = CreateRoundRectRgn(0, 0, btnDivPay.Width, btnDivPay.Height, 15, 15);
+            SetWindowRgn(btnDivPay.Handle, ip, true);
+
+            ip = CreateRoundRectRgn(0, 0, btnRefresh.Width, btnRefresh.Height, 15, 15);
+            SetWindowRgn(btnRefresh.Handle, ip, true);
+            /*string apiUrl = "http://hoshi-kirby.xyz/api/v1/order/store/list";
             try
             {
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(apiUrl);
@@ -108,9 +130,9 @@ namespace Unicon1.ucPanel
             catch (Exception ex)
             {
                 MessageBox.Show("오류 발생: " + ex.Message, "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            }*/
             //Console.WriteLine(_storecode[0]);
-            
+
         }
 
 
@@ -166,8 +188,15 @@ namespace Unicon1.ucPanel
 
             pLT.Controls.Clear();
             pLT.Controls.Add(_ucUserControl1);
+            Label lbl = new Label();
+            lbl.AutoSize = false;
+            lbl.Height = 2;
+            lbl.Dock = DockStyle.Bottom;
+            lbl.Name = "lbl1";
+            lbl.BackColor = Color.Orange;
+            pLT.Controls.Add(lbl);
 
-            lblPayWord.Text = "총결제금액:";
+            lblPayWord.Text = "총 결제 금액:";
             lblTotalPrice.Text = total_price.ToString();
         }
 
@@ -215,16 +244,19 @@ namespace Unicon1.ucPanel
                 case (MenuList.Sandwitch):
                     pMenuList.Controls.Clear();
                     pMenuList.Controls.Add(_ucSandwitch);
+                    pMenuList.Controls[0].Dock = DockStyle.Fill;
                     break;
                 case (MenuList.Pasta):
                     _ucPasta = new ucPasta("");
                     _ucPasta.addlist += Add_status;
                     pMenuList.Controls.Clear();
                     pMenuList.Controls.Add(_ucPasta);
+                    pMenuList.Controls[0].Dock = DockStyle.Fill;
                     break;
                 case (MenuList.Steak):
                     pMenuList.Controls.Clear();
                     pMenuList.Controls.Add(_ucSteak);
+                    pMenuList.Controls[0].Dock = DockStyle.Fill;
                     break;
 
             }
@@ -237,11 +269,13 @@ namespace Unicon1.ucPanel
             _ucPayment.inputprice += _ucPayment_inputprice;
             pMenuList.Controls.Clear();
             pMenuList.Controls.Add(_ucPayment);
-            
+
+            ucPaymentLT _ucPaymentLT = new ucPaymentLT();
+            _ucPaymentLT.floatPayment += fPaymentPage;
             pLT.Controls.Clear();
             pLT.Controls.Add(_ucPaymentLT);
 
-            lblPayWord.Text = "이번결제금액:";
+            lblPayWord.Text = "이번 결제 금액:";
             lblTotalPrice.Text = "0";
         }
 
@@ -256,6 +290,8 @@ namespace Unicon1.ucPanel
                     pMenuList.Controls.Add(_ucPayment);
                     break;
                 case ("dutch"):
+                    ucDucth _ucDutch = new ucDucth();
+                    _ucDutch.floatdutch += fDutch;
                     pMenuList.Controls.Clear();
                     pMenuList.Controls.Add(_ucDutch);
                     break;
@@ -265,11 +301,12 @@ namespace Unicon1.ucPanel
         private void fDutch(object oSender, int numPerson)
         {
             int n = 0;
-            int Priceper1 = total_price / numPerson;
+            int Priceper1 = numPerson > 0 ? total_price / numPerson : 0;
             int restofPrice = total_price - Priceper1 * n;
-            _ucDutch2.lblPricePerRound.Text = Priceper1.ToString();
-            _ucDutch2.lblRestofPrice.Text = restofPrice.ToString();
-            _ucDutch2.lblNumPerson.Text = numPerson.ToString();
+
+            _ucDutch2.lblPricePerRound.Text = Priceper1.ToString() + "원";
+            _ucDutch2.lblRestofPrice.Text = restofPrice.ToString() + "원";
+            _ucDutch2.lblNumPerson.Text = numPerson.ToString() + "명";
 
             pMenuList.Controls.Clear();
             pMenuList.Controls.Add(_ucDutch2);
@@ -282,7 +319,8 @@ namespace Unicon1.ucPanel
 
         private void btnBackTable_Click(object sender, EventArgs e)
         {
-            BackToTable(sender, _table, payed_price, place, tableNum);
+            if (pMenuList.Controls.Count == 0 || pMenuList.Controls[0] == _ucPasta || pMenuList.Controls[0] == _ucSandwitch || pMenuList.Controls[0] == _ucSteak) BackToTable(sender, _table, payed_price, place, tableNum);
+            else BackToMenu(sender);
         }
 
         private void btnMixedPay_Click(object sender, EventArgs e)
@@ -309,7 +347,7 @@ namespace Unicon1.ucPanel
             if(pMenuList.Controls.Count == 0) { return; }
             foreach (Control c in pMenuList.Controls)
             {
-                if (c == _ucPasta || c == _ucSandwitch || c == _ucSteak || c == textBoxResult) return;
+                if (c == _ucPasta || c == _ucSandwitch || c == _ucSteak) return;
             }
             payed_price += int.Parse(lblTotalPrice.Text);
             lblTotalPrice.Text = "0";
