@@ -32,6 +32,26 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="FontAwesome.Sharp, Version=6.3.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
       <HintPath>packages\FontAwesome.Sharp.6.3.0\lib\net472\FontAwesome.Sharp.dll</HintPath>
@@ -47,6 +67,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Threading.AccessControl, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -153,11 +174,11 @@
     <Compile Include="ucPanel\ucTable.Designer.cs">
       <DependentUpon>ucTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucPanel\ucSandwitch.cs">
+    <Compile Include="ucPanel\ucMenu.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ucPanel\ucSandwitch.Designer.cs">
-      <DependentUpon>ucSandwitch.cs</DependentUpon>
+    <Compile Include="ucPanel\ucMenu.Designer.cs">
+      <DependentUpon>ucMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="ucPanel\ucMenuStatus.cs">
       <SubType>UserControl</SubType>
@@ -165,11 +186,11 @@
     <Compile Include="ucPanel\ucMenuStatus.Designer.cs">
       <DependentUpon>ucMenuStatus.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucPanel\UserControl1.cs">
+    <Compile Include="ucPanel\ucCategory.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ucPanel\UserControl1.Designer.cs">
-      <DependentUpon>UserControl1.cs</DependentUpon>
+    <Compile Include="ucPanel\ucCategory.Designer.cs">
+      <DependentUpon>ucCategory.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -229,11 +250,11 @@
     <EmbeddedResource Include="ucPanel\ucTable.resx">
       <DependentUpon>ucTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ucPanel\ucSandwitch.resx">
-      <DependentUpon>ucSandwitch.cs</DependentUpon>
+    <EmbeddedResource Include="ucPanel\ucMenu.resx">
+      <DependentUpon>ucMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ucPanel\UserControl1.resx">
-      <DependentUpon>UserControl1.cs</DependentUpon>
+    <EmbeddedResource Include="ucPanel\ucCategory.resx">
+      <DependentUpon>ucCategory.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

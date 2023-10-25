@@ -13,6 +13,7 @@ using HtmlAgilityPack;
 using System.Net;
 using System.IO;
 using Newtonsoft.Json.Linq;
+using System.Web.Script.Serialization;
 
 namespace Unicon1.ucPanel
 {
@@ -36,26 +37,46 @@ namespace Unicon1.ucPanel
         {
             string id = tboxID.Text;
             string pw = tboxPW.Text;
-            string apiUrl = "http://hoshi-kirby.xyz/api/v1/user/login?id=" + id + "&pw=" + pw;
+            string apiUrl = Properties.Settings.Default.url + "api/biz/user/";
+            string result = string.Empty;
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(apiUrl);
+            request.ContentType = "application/json;charset=utf-8";
+            request.Method = "POST";
             try
             {
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(apiUrl);
-                string responseFromServer = string.Empty;
-                request.Method = "GET";
-                request.ContentType = "application/json";
-                using (WebResponse response = request.GetResponse())
-                using (Stream dataStream = response.GetResponseStream())
-                using (StreamReader reader = new StreamReader(dataStream))
-                    responseFromServer = reader.ReadToEnd();
-                JObject jobect = JObject.Parse(responseFromServer);
-                JToken jtoken = jobect["data"];
-                Console.WriteLine(jtoken["access_token"]);
-                if (jtoken["access_token"] == null) MessageBox.Show(jtoken["message"].ToString());
-                else LoginSuccess(sender, jtoken["access_token"]);
+                using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+                {
+                    string json = JsonConvert.SerializeObject(new User(id, pw));
+                    streamWriter.Write(json);
+                }
+
+                var httpResponse = (HttpWebResponse)request.GetResponse();
+                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                {
+                    result = streamReader.ReadToEnd();
+                    Console.WriteLine(result.ToString());
+                }
+                JObject jobject = JObject.Parse(result);
+                JToken jtoken = jobject["status"];
+                if (jtoken == null || jtoken.ToString() != "200") throw new Exception();
+                Properties.Settings.Default.access_token = jobject["access_token"].ToString();
+                Properties.Settings.Default.refresh_token = jobject["refresh_token"].ToString();
+                LoginSuccess(sender);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("오류 발생: " + ex.Message, "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        class User
+        {
+            public string email { get; set; }
+            public string password { get; set; }
+            public User(string email, string password)
+            {
+                this.email = email;
+                this.password = password;
             }
         }
 

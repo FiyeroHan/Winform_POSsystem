@@ -146,10 +146,8 @@ namespace Unicon1.ucPanel
             pTable.Controls.Clear();
             for(int i = 1; i < 14; i++)
             {
-                Console.WriteLine();
                 for(int j = 1; j < 25; j++)
                 {
-                    Console.WriteLine(_tableStatus[i, j].Name);
                     Button btn = new Button();
                     if (_tableStatus[i, j].Name.Substring(0, 8) == "btnEmpty")
                     {

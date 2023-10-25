@@ -73,10 +73,9 @@ namespace Unicon1
                 for (int j = 0; j < 100; j++) _tableMenuList[i, j] = new List<ucMenuStatus>();
             }
             ucTable = new ucPanel.ucTable();
-            UcLogin_LoginSuccess(sender, _token);
         }
 
-        private void UcLogin_LoginSuccess(object sender, JToken token)
+        private void UcLogin_LoginSuccess(object sender)
         {
             pMain.Controls.Remove(ucLogin);
             ucTable.FloatDetail += fDetail;
@@ -84,7 +83,6 @@ namespace Unicon1
             ucTable.changePlace += UCTable_ChangePlace;
 
             pMain.Controls.Add(ucTable);
-            _token = token.ToString();
             ucSetting.endSetting += UcSetting_endSetting;
             ucSetting.changePlace += UcSetting_changePlace;
             ucSetting.placeSetting += UcSetting_placeSetting;

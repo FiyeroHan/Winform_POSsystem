@@ -32,15 +32,15 @@ namespace Unicon1.ucPanel
         public event backToTable BackToTable;
 
         Form1 _form1 = new Form1();
-        ucSandwitch _ucSandwitch = new ucSandwitch();
         ucPasta _ucPasta;
         ucSteak _ucSteak = new ucSteak();
         ucMenuStatus _ucMenuStatus = new ucMenuStatus();
-        UserControl1 _ucUserControl1 = new UserControl1();
+        ucCategory _ucCategory = new ucCategory();
         ucDucth2 _ucDutch2 = new ucDucth2();
         ucPayType _ucPayType = new ucPayType();
         ucPayTypeLT _ucPayTypeLT = new ucPayTypeLT();
-        
+        ucMenu ucmenu;
+        ucPayment ucPayment;
 
         string _token = string.Empty;
         List<string> _storecode = new List<string>();
@@ -64,13 +64,12 @@ namespace Unicon1.ucPanel
             Console.WriteLine(payed_price.ToString());
             InitializeComponent();
 
-            _ucSandwitch.addlist += Add_status;
             _ucSteak.addlist += Add_status;
-            _ucUserControl1.FloatMenu += fMenulist;
+            _ucCategory.FloatMenu += fMenulist;
             _form1.AccessToken += foo;
 
             pLT.Controls.Clear();
-            pLT.Controls.Add(_ucUserControl1);
+            pLT.Controls.Add(_ucCategory);
 
             Label lbl = new Label();
             lbl.AutoSize = false;
@@ -105,6 +104,22 @@ namespace Unicon1.ucPanel
 
             ip = CreateRoundRectRgn(0, 0, btnRefresh.Width, btnRefresh.Height, 15, 15);
             SetWindowRgn(btnRefresh.Handle, ip, true);
+
+            ip = CreateRoundRectRgn(0, 0, btnPaymentDetail.Width, btnPaymentDetail.Height, 15, 15);
+            SetWindowRgn(btnPaymentDetail.Handle, ip, true);
+
+            string url = "http://mrqr.iptime.org";//"http://192.168.0.9:3030";
+            try
+            {
+                HttpWebRequest r = (HttpWebRequest)WebRequest.Create(url);
+                r.Method = "GET";
+                
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("ㄴㄴ");
+                Console.WriteLine(ex.Message);
+            }
             /*string apiUrl = "http://hoshi-kirby.xyz/api/v1/order/store/list";
             try
             {
@@ -187,7 +202,7 @@ namespace Unicon1.ucPanel
             pMenuList.Controls.Clear();
 
             pLT.Controls.Clear();
-            pLT.Controls.Add(_ucUserControl1);
+            pLT.Controls.Add(_ucCategory);
             Label lbl = new Label();
             lbl.AutoSize = false;
             lbl.Height = 2;
@@ -237,38 +252,21 @@ namespace Unicon1.ucPanel
             }
         }
 
-        private void fMenulist(object oSender, MenuList menu)
+        private void fMenulist(object oSender, List<menu_info> menu)
         {
-            switch (menu)
-            {
-                case (MenuList.Sandwitch):
-                    pMenuList.Controls.Clear();
-                    pMenuList.Controls.Add(_ucSandwitch);
-                    pMenuList.Controls[0].Dock = DockStyle.Fill;
-                    break;
-                case (MenuList.Pasta):
-                    _ucPasta = new ucPasta("");
-                    _ucPasta.addlist += Add_status;
-                    pMenuList.Controls.Clear();
-                    pMenuList.Controls.Add(_ucPasta);
-                    pMenuList.Controls[0].Dock = DockStyle.Fill;
-                    break;
-                case (MenuList.Steak):
-                    pMenuList.Controls.Clear();
-                    pMenuList.Controls.Add(_ucSteak);
-                    pMenuList.Controls[0].Dock = DockStyle.Fill;
-                    break;
-
-            }
-
+            ucmenu = new ucMenu(menu);
+            ucmenu.addlist += Add_status;
+            pMenuList.Controls.Clear();
+            pMenuList.Controls.Add(ucmenu);
+            pMenuList.Controls[0].Dock = DockStyle.Fill;
         }
 
         private void btnDivPay_Click(object sender, EventArgs e)
         {
-            ucPayment _ucPayment = new ucPayment(total_price, payed_price);
-            _ucPayment.inputprice += _ucPayment_inputprice;
+            ucPayment = new ucPayment(total_price, payed_price);
+            ucPayment.inputprice += _ucPayment_inputprice;
             pMenuList.Controls.Clear();
-            pMenuList.Controls.Add(_ucPayment);
+            pMenuList.Controls.Add(ucPayment);
 
             ucPaymentLT _ucPaymentLT = new ucPaymentLT();
             _ucPaymentLT.floatPayment += fPaymentPage;
@@ -319,7 +317,7 @@ namespace Unicon1.ucPanel
 
         private void btnBackTable_Click(object sender, EventArgs e)
         {
-            if (pMenuList.Controls.Count == 0 || pMenuList.Controls[0] == _ucPasta || pMenuList.Controls[0] == _ucSandwitch || pMenuList.Controls[0] == _ucSteak) BackToTable(sender, _table, payed_price, place, tableNum);
+            if (pMenuList.Controls.Count == 0 || pMenuList.Controls[0] == ucmenu) BackToTable(sender, _table, payed_price, place, tableNum);
             else BackToMenu(sender);
         }
 
@@ -336,10 +334,10 @@ namespace Unicon1.ucPanel
         {
             pLT.Controls.Clear();
             pMenuList.Controls.Clear();
-            UserControl1 userControl1 = new UserControl1();
-            _ucUserControl1 = userControl1;
-            pLT.Controls.Add(_ucUserControl1);
-            _ucUserControl1.FloatMenu += fMenulist;
+            ucCategory ucCategory = new ucCategory();
+            _ucCategory = ucCategory;
+            pLT.Controls.Add(_ucCategory);
+            _ucCategory.FloatMenu += fMenulist;
         }
 
         private void btnCashPay_Click(object sender, EventArgs e)
@@ -347,7 +345,7 @@ namespace Unicon1.ucPanel
             if(pMenuList.Controls.Count == 0) { return; }
             foreach (Control c in pMenuList.Controls)
             {
-                if (c == _ucPasta || c == _ucSandwitch || c == _ucSteak) return;
+                if (c == ucmenu) return;
             }
             payed_price += int.Parse(lblTotalPrice.Text);
             lblTotalPrice.Text = "0";
@@ -369,8 +367,8 @@ namespace Unicon1.ucPanel
         //        // Do Something...
         //    }
         //        }
-        
-        
+
+
         /// <summary>
         /// 주문이 들어왔을때 실행해서 변수에 집어넣는 함수
         /// </summary>
