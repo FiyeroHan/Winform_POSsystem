@@ -338,6 +338,13 @@ namespace Unicon1.ucPanel
             _ucCategory = ucCategory;
             pLT.Controls.Add(_ucCategory);
             _ucCategory.FloatMenu += fMenulist;
+            Label lbl = new Label();
+            lbl.AutoSize = false;
+            lbl.Height = 2;
+            lbl.Dock = DockStyle.Bottom;
+            lbl.Name = "lbl1";
+            lbl.BackColor = Color.Orange;
+            pLT.Controls.Add(lbl);
         }
 
         private void btnCashPay_Click(object sender, EventArgs e)

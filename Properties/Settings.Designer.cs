@@ -25,7 +25,7 @@ namespace Unicon1.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://mrqr.iptime.org/")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://223.130.137.39:3030/api/")]
         public string url {
             get {
                 return ((string)(this["url"]));

@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="url" Type="System.String" Scope="User">
-      <Value Profile="(Default)">http://mrqr.iptime.org/</Value>
+      <Value Profile="(Default)">http://223.130.137.39:3030/api/</Value>
     </Setting>
     <Setting Name="access_token" Type="System.String" Scope="User">
       <Value Profile="(Default)" />

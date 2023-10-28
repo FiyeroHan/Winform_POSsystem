@@ -37,7 +37,7 @@ namespace Unicon1.ucPanel
         {
             string id = tboxID.Text;
             string pw = tboxPW.Text;
-            string apiUrl = Properties.Settings.Default.url + "api/biz/user/";
+            string apiUrl = Properties.Settings.Default.url + "biz/user/";
             string result = string.Empty;
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(apiUrl);
             request.ContentType = "application/json;charset=utf-8";
@@ -84,5 +84,6 @@ namespace Unicon1.ucPanel
         {
             if (e.KeyChar == (char)Keys.Enter) btnLogin_Click(sender, e);
         }
+
     }
 }

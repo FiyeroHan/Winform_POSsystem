@@ -29,45 +29,39 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.tboxID = new System.Windows.Forms.TextBox();
             this.tboxPW = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.cboxPWVisible = new System.Windows.Forms.CheckBox();
+            this.tboxID = new VerticalTextBox();
+            this.verticalTextBox1 = new VerticalTextBox();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("굴림", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(402, 135);
+            this.label1.Location = new System.Drawing.Point(386, 125);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(192, 64);
             this.label1.TabIndex = 0;
             this.label1.Text = "Login";
             // 
-            // tboxID
-            // 
-            this.tboxID.Location = new System.Drawing.Point(397, 231);
-            this.tboxID.Name = "tboxID";
-            this.tboxID.Size = new System.Drawing.Size(100, 21);
-            this.tboxID.TabIndex = 1;
-            this.tboxID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PressEnter);
-            // 
             // tboxPW
             // 
-            this.tboxPW.Location = new System.Drawing.Point(397, 273);
+            this.tboxPW.Location = new System.Drawing.Point(397, 257);
+            this.tboxPW.Multiline = true;
             this.tboxPW.Name = "tboxPW";
             this.tboxPW.PasswordChar = '*';
-            this.tboxPW.Size = new System.Drawing.Size(100, 21);
+            this.tboxPW.Size = new System.Drawing.Size(154, 37);
             this.tboxPW.TabIndex = 2;
-            this.tboxPW.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PressEnter);
+            this.tboxPW.Text = "6d4f1aec6d5e2b29816d617e952c3a10";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(372, 236);
+            this.label2.Location = new System.Drawing.Point(372, 220);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(16, 12);
             this.label2.TabIndex = 3;
@@ -84,7 +78,7 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(514, 246);
+            this.btnLogin.Location = new System.Drawing.Point(607, 244);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 23);
             this.btnLogin.TabIndex = 5;
@@ -103,16 +97,41 @@
             this.cboxPWVisible.UseVisualStyleBackColor = true;
             this.cboxPWVisible.CheckedChanged += new System.EventHandler(this.cboxPWVisible_CheckedChanged);
             // 
+            // tboxID
+            // 
+            this.tboxID.BackColor = System.Drawing.SystemColors.Window;
+            this.tboxID.BorderColor = System.Drawing.Color.Gray;
+            this.tboxID.LeftRightPadding = ((uint)(10u));
+            this.tboxID.Location = new System.Drawing.Point(397, 207);
+            this.tboxID.Name = "tboxID";
+            this.tboxID.Size = new System.Drawing.Size(159, 44);
+            this.tboxID.TabIndex = 7;
+            this.tboxID.Text = "store@ddingdong.com";
+            this.tboxID.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // verticalTextBox1
+            // 
+            this.verticalTextBox1.BackColor = System.Drawing.SystemColors.Window;
+            this.verticalTextBox1.BorderColor = System.Drawing.Color.Gray;
+            this.verticalTextBox1.LeftRightPadding = ((uint)(10u));
+            this.verticalTextBox1.Location = new System.Drawing.Point(557, 278);
+            this.verticalTextBox1.Name = "verticalTextBox1";
+            this.verticalTextBox1.Size = new System.Drawing.Size(149, 56);
+            this.verticalTextBox1.TabIndex = 8;
+            this.verticalTextBox1.Text = "6d4f1aec6d5e2b29816d617e952c3a10";
+            this.verticalTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
             // ucLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.verticalTextBox1);
+            this.Controls.Add(this.tboxID);
             this.Controls.Add(this.cboxPWVisible);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tboxPW);
-            this.Controls.Add(this.tboxID);
             this.Controls.Add(this.label1);
             this.Name = "ucLogin";
             this.Size = new System.Drawing.Size(977, 444);
@@ -124,11 +143,12 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tboxID;
         private System.Windows.Forms.TextBox tboxPW;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.CheckBox cboxPWVisible;
+        private VerticalTextBox tboxID;
+        private VerticalTextBox verticalTextBox1;
     }
 }

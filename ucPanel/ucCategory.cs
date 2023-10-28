@@ -22,7 +22,7 @@ namespace Unicon1.ucPanel
         public ucCategory()
         {
             InitializeComponent();
-            string apiUrl = Properties.Settings.Default.url + "api/biz/store/my/category";
+            string apiUrl = Properties.Settings.Default.url + "biz/store/my/category";
             string result = string.Empty;
             string access_token = Properties.Settings.Default.access_token;
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(apiUrl);
@@ -70,7 +70,7 @@ namespace Unicon1.ucPanel
         private List<menu_info> menu_Infos(string cateId)
         {
             List<menu_info> res = new List<menu_info>();
-            string apiUrl = Properties.Settings.Default.url + "api/biz/store/my/stock?category_id=" + cateId;
+            string apiUrl = Properties.Settings.Default.url + "biz/store/my/stock?query=BY_CATEGORY&category_id=" + cateId;
             string result = string.Empty;
             string access_token = Properties.Settings.Default.access_token;
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(apiUrl);

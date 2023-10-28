@@ -192,6 +192,9 @@
     <Compile Include="ucPanel\ucCategory.Designer.cs">
       <DependentUpon>ucCategory.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucPanel\VerticalTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

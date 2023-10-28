@@ -36,7 +36,8 @@ namespace Unicon1.ucPanel
                 btn.Location = new Point(10, 124);
                 btn.Margin = new Padding(10, 15, 10, 15);
                 btn.Name = "btn"+i.ToString();
-                btn.Text = menu[i].name + "\r\n" + menu[i].describe + "\r\n" + menu[i].price.ToString();
+                btn.Text = menu[i].name + "\r\n\r\n" + menu[i].price.ToString();
+                btn.TextAlign = ContentAlignment.MiddleLeft;
                 btn.Size = new Size(175, 79);
                 btn.TabIndex = i;
                 btn.UseVisualStyleBackColor = false;
@@ -53,11 +54,12 @@ namespace Unicon1.ucPanel
         private void Btn_Click(object sender, EventArgs e)
         {
             Button btn = sender as Button;
-            string[] t = btn.Text.Split(new string[] {"\r\n"}, StringSplitOptions.None);
+            string[] t = btn.Text.Split(new string[] {"\r\n\r\n"}, StringSplitOptions.None);
             ucMenuStatus menuInfo = new ucMenuStatus();
             menuInfo.Menu = t[0];
             menuInfo.Detail = "";
-            menuInfo.Price = int.Parse(t[2]);
+            menuInfo.Price = int.Parse(t[1]);
+            addlist(sender, menuInfo);
         }
 
         private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e)
@@ -65,40 +67,5 @@ namespace Unicon1.ucPanel
 
         }
 
-        private void button10_Click(object sender, EventArgs e)
-        {
-            ucMenuStatus menuInfo = new ucMenuStatus();
-
-            menuInfo.Menu = "아메리칸 샌드위치";
-            menuInfo.Detail = "토마토, 오이 없음";
-            menuInfo.Price = 9000;
-
-
-            addlist("button10", menuInfo);
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-            ucMenuStatus menuInfo = new ucMenuStatus();
-
-            menuInfo.Menu = "스모크 돼지고기 샌드위치";
-            menuInfo.Detail = "";
-            menuInfo.Price = 9000;
-
-
-            addlist("button9", menuInfo);
-        }
-
-        private void btnTable1_Click(object sender, EventArgs e)
-        {
-            ucMenuStatus menuInfo = new ucMenuStatus();
-
-            menuInfo.Menu = "아보카도 샌드위치";
-            menuInfo.Detail = "오이 없음";
-            menuInfo.Price = 9000;
-
-
-            addlist("btnTable1", menuInfo);
-        }
     }
 }
